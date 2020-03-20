@@ -1,0 +1,8 @@
+	.classpath
+	.factorypath
+	.project
+	.settings
+	target/
+    .vscode/*
+	.DS_Store
+	.project

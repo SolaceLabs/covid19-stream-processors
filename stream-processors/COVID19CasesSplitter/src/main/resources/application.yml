@@ -1,0 +1,24 @@
+spring:
+  cloud:
+    stream:
+      function:
+        definition: onCovid19RawData
+      bindings:
+        onCovid19RawData-in-0:
+          destination: jhu/csse/covid19/raw
+solace:
+  java:
+    host: ${host:tcp://localhost:55555}
+    msgVpn: ${msgVpn:default}
+    clientUsername: ${clientUsername:default}
+    clientPassword: ${clientPassword:default}
+  jms:
+    host: ${host:tcp://localhost:55555}
+    msgVpn: ${msgVpn:default}
+    clientUsername: ${clientUsername:default}
+    clientPassword: ${clientPassword:default}
+logging:
+  level:
+    root: info
+    org:
+      springframework: info

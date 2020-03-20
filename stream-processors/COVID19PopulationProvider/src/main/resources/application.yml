@@ -1,0 +1,29 @@
+spring:
+  cloud:
+    stream:
+      solace:
+        bindings:
+          onCovid19USConfirmedUpdate-in-0:
+            consumer:
+              queueAdditionalSubscriptions: jhu/csse/covid19/cases/confirmed/update/US/*
+      function:
+        definition: onCovid19USConfirmedUpdate
+      bindings:
+        onCovid19USConfirmedUpdate-in-0:
+          destination: jhu/csse/covid19/cases/confirmed/update/US
+solace:
+  java:
+    host: ${host:tcp://localhost:55555}
+    msgVpn: ${msgVpn:default}
+    clientUsername: ${clientUsername:default}
+    clientPassword: ${clientPassword:default}
+  jms:
+    host: ${host:tcp://localhost:55555}
+    msgVpn: ${msgVpn:default}
+    clientUsername: ${clientUsername:default}
+    clientPassword: ${clientPassword:default}
+logging:
+  level:
+    root: info
+    org:
+      springframework: info
