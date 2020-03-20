@@ -1,7 +1,7 @@
 package com.solace.covid19.splitter;
 
 public class COVID19Utilities {
-    protected static COVID19UpdateSchema clone(RawJHUCSSUCOVID19.Features feature)
+    protected static COVID19UpdateSchema cloneFeature(RawJHUCSSUCOVID19.Features feature)
     {
         COVID19UpdateSchema result = new COVID19UpdateSchema();
         COVID19UpdateSchema.Attributes attributes = new COVID19UpdateSchema.Attributes();

@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
 
-import static com.solace.covid19.splitter.COVID19Utilities.cloneOnlyAttribute;
+import static com.solace.covid19.splitter.COVID19Utilities.cloneFeature;
 
 
 @SpringBootApplication
@@ -47,10 +47,11 @@ public class COVID19RegionalSplitter {
 				if (!updateMap.containsKey(key) || updateMap.get(key).getAttributes().getLastUpdate().compareTo(feature.getAttributes().getLastUpdate()) != 0) {
 
 					try {
-						jmsTemplate.convertAndSend(key, mapper.writeValueAsString(cloneOnlyAttribute(feature, COVID19Utilities.DataAttribute.ACTIVE)));
+						jmsTemplate.convertAndSend(key, mapper.writeValueAsString(cloneFeature(feature)));
 					} catch (JsonProcessingException e) {
 						logger.error(e.getMessage());
 					}
+					updateMap.put(key, feature);
 					logger.info("Publishing: " + key);
 				}
 			}
