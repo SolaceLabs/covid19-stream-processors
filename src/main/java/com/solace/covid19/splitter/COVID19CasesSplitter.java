@@ -13,11 +13,14 @@ import org.springframework.jms.core.JmsTemplate;
 import reactor.core.publisher.Flux;
 
 import javax.annotation.PostConstruct;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
+
+import static com.solace.covid19.splitter.COVID19Utilities.cloneOnlyAttribute;
 
 
 @SpringBootApplication
@@ -31,7 +34,10 @@ public class COVID19CasesSplitter {
 	private String topicPrefix="jhu/csse/covid19/cases/";
 
 	public static void main(String[] args) {
-		SpringApplication.run(COVID19CasesSplitter.class);
+		SpringApplication app = new SpringApplication(COVID19CasesSplitter.class);
+		app.setDefaultProperties(Collections
+				.singletonMap("server.port", "8084"));
+		app.run(args);
 	}
 
 
@@ -47,7 +53,7 @@ public class COVID19CasesSplitter {
 					{
 						String topicName = topicPrefix + "active/update/" + feature.getAttributes().getCountryRegion() + "/" + feature.getAttributes().getProvinceState();
 						try {
-							jmsTemplate.convertAndSend(topicName, mapper.writeValueAsString(feature));
+							jmsTemplate.convertAndSend(topicName, mapper.writeValueAsString(cloneOnlyAttribute(feature, COVID19Utilities.DataAttribute.ACTIVE)));
 						} catch (JsonProcessingException e) {
 							logger.error(e.getMessage());
 						}
@@ -57,7 +63,7 @@ public class COVID19CasesSplitter {
 					{
 						String topicName = topicPrefix + "confirmed/update/" + feature.getAttributes().getCountryRegion() + "/" + feature.getAttributes().getProvinceState();
 						try {
-							jmsTemplate.convertAndSend(topicName, mapper.writeValueAsString(feature));
+							jmsTemplate.convertAndSend(topicName, mapper.writeValueAsString(cloneOnlyAttribute(feature, COVID19Utilities.DataAttribute.CONFIRMED)));
 						} catch (JsonProcessingException e) {
 							logger.error(e.getMessage());
 						}
@@ -67,7 +73,7 @@ public class COVID19CasesSplitter {
 					{
 						String topicName = topicPrefix + "deaths/update/" + feature.getAttributes().getCountryRegion() + "/" + feature.getAttributes().getProvinceState();
 						try {
-							jmsTemplate.convertAndSend(topicName, mapper.writeValueAsString(feature));
+							jmsTemplate.convertAndSend(topicName, mapper.writeValueAsString(cloneOnlyAttribute(feature, COVID19Utilities.DataAttribute.DEATHS)));
 						} catch (JsonProcessingException e) {
 							logger.error(e.getMessage());
 						}
@@ -77,7 +83,7 @@ public class COVID19CasesSplitter {
 					{
 						String topicName = topicPrefix + "recovered/update/" + feature.getAttributes().getCountryRegion() + "/" + feature.getAttributes().getProvinceState();
 						try {
-							jmsTemplate.convertAndSend(topicName, mapper.writeValueAsString(feature));
+							jmsTemplate.convertAndSend(topicName, mapper.writeValueAsString(cloneOnlyAttribute(feature, COVID19Utilities.DataAttribute.RECOVERED)));
 						} catch (JsonProcessingException e) {
 							logger.error(e.getMessage());
 						}
@@ -90,8 +96,7 @@ public class COVID19CasesSplitter {
 	}
 
 	@PostConstruct
-	private void fixJMSTemplate()
-	{
+	private void fixJMSTemplate() {
 		// Code that makes the JMS Template Cache Connections for Performance.
 		CachingConnectionFactory ccf = new CachingConnectionFactory();
 		ccf.setTargetConnectionFactory(jmsTemplate.getConnectionFactory());

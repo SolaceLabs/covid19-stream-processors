@@ -2,6 +2,7 @@
 package com.solace.covid19.splitter;
 
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public  class COVID19UpdateSchema {
@@ -49,17 +50,21 @@ public  class COVID19UpdateSchema {
 
 		@JsonProperty("Long_")
 		private Double long_;
+		@JsonInclude(JsonInclude.Include.NON_DEFAULT)
 		@JsonProperty("Recovered")
 		private Integer recovered;
 		@JsonProperty("Country_Region")
 		private String countryRegion;
 		@JsonProperty("Active")
+		@JsonInclude(JsonInclude.Include.NON_DEFAULT)
 		private Integer active;
 		@JsonProperty("Last_Update")
 		private Long lastUpdate;
 		@JsonProperty("Deaths")
+		@JsonInclude(JsonInclude.Include.NON_DEFAULT)
 		private Integer deaths;
 		@JsonProperty("Confirmed")
+		@JsonInclude(JsonInclude.Include.NON_DEFAULT)
 		private Integer confirmed;
 		@JsonProperty("Province_State")
 		private String provinceState;

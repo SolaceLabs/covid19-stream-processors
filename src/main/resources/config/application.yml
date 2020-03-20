@@ -2,9 +2,11 @@ spring:
   cloud:
     stream:
       function:
-        definition: onCovid19RawData
+        definition: onCovid19RawData;onCovidRawDataRegion
       bindings:
         onCovid19RawData-in-0:
+          destination: jhu/csse/covid19/raw
+        onCovidRawDataRegion-in-0:
           destination: jhu/csse/covid19/raw
 solace:
   java:
@@ -22,5 +24,3 @@ logging:
     root: info
     org:
       springframework: info
-server:
-  port : 9000
