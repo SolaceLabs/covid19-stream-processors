@@ -1,0 +1,26 @@
+spring:
+  cloud:
+    stream:
+      function:
+        definition: onCovid19RawData
+      bindings:
+        onCovid19RawData-in-0:
+          destination: jhu/csse/covid19/raw
+solace:
+  java:
+    host: 'tcp://mr22gx8ufrttvt.messaging.solace.cloud:55555'
+    msgVpn: acme-rideshare-broker
+    clientUsername: solace-cloud-client
+    clientPassword: 33v4u6q1ed1dvnb2ehub9j6rgs
+  jms:
+    host: 'tcp://mr22gx8ufrttvt.messaging.solace.cloud:55555'
+    msgVpn: acme-rideshare-broker
+    clientUsername: solace-cloud-client
+    clientPassword: 33v4u6q1ed1dvnb2ehub9j6rgs
+logging:
+  level:
+    root: info
+    org:
+      springframework: info
+server:
+  port : 9000
