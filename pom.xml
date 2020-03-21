@@ -8,6 +8,7 @@
     <modules>
         <module>COVID19CasesSplitter</module>
         <module>COVID19RegionalSplitter</module>
+        <module>COVID19DataModels</module>
     </modules>
     <packaging>pom</packaging>
     <name>covid-19-splitter</name>

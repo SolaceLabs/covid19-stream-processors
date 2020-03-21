@@ -9,13 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>COVID19CasesSplitter</artifactId>
-    <dependencies>
-        <dependency>
-            <groupId>com.solace.covid19.splitter</groupId>
-            <artifactId>COVID19DataModels</artifactId>
-            <version>0.0.1</version>
-            <scope>compile</scope>
-        </dependency>
-    </dependencies>
+    <artifactId>COVID19DataModels</artifactId>
+
+
 </project>

@@ -2,6 +2,8 @@
 package com.solace.covid19.splitter.cases;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.solace.covid19.data.models.COVID19Utilities;
+import com.solace.covid19.data.models.RawJHUCSSUCOVID19;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,13 +19,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
 
-import static com.solace.covid19.splitter.cases.COVID19Utilities.cloneOnlyAttribute;
-
+import static com.solace.covid19.data.models.COVID19Utilities.cloneOnlyAttribute;
 
 @SpringBootApplication
 public class COVID19CasesSplitter {
 
 	private static final Logger logger = LoggerFactory.getLogger(COVID19CasesSplitter.class);
+
 	@Autowired
 	private JmsTemplate jmsTemplate = null;
 	private ObjectMapper mapper = new ObjectMapper();

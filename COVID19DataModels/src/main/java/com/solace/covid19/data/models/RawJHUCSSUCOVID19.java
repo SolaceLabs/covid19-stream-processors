@@ -1,5 +1,5 @@
 
-package com.solace.covid19.splitter.regional;
+package com.solace.covid19.data.models;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;

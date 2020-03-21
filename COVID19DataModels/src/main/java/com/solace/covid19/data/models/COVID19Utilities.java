@@ -1,7 +1,7 @@
-package com.solace.covid19.splitter.cases;
+package com.solace.covid19.data.models;
 
 public class COVID19Utilities {
-    protected static COVID19UpdateSchema cloneFeature(RawJHUCSSUCOVID19.Features feature)
+    public static COVID19UpdateSchema cloneFeature(RawJHUCSSUCOVID19.Features feature)
     {
         COVID19UpdateSchema result = new COVID19UpdateSchema();
         COVID19UpdateSchema.Attributes attributes = new COVID19UpdateSchema.Attributes();
@@ -21,13 +21,13 @@ public class COVID19Utilities {
         geometry.setY(feature.getGeometry().getY());
         return result;
     }
-    protected static enum DataAttribute {
+    public static enum DataAttribute {
         DEATHS,
         ACTIVE,
         RECOVERED,
         CONFIRMED
     }
-    protected static COVID19UpdateSchema cloneOnlyAttribute(RawJHUCSSUCOVID19.Features feature, DataAttribute attr)
+    public static COVID19UpdateSchema cloneOnlyAttribute(RawJHUCSSUCOVID19.Features feature, DataAttribute attr)
     {
         COVID19UpdateSchema result = new COVID19UpdateSchema();
         COVID19UpdateSchema.Attributes attributes = new COVID19UpdateSchema.Attributes();
