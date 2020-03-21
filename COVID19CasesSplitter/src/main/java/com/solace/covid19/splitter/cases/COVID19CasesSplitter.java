@@ -1,5 +1,5 @@
 
-package com.solace.covid19.splitter;
+package com.solace.covid19.splitter.cases;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
@@ -10,17 +10,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.jms.connection.CachingConnectionFactory;
 import org.springframework.jms.core.JmsTemplate;
-import reactor.core.publisher.Flux;
 
 import javax.annotation.PostConstruct;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.function.Function;
 import java.util.function.Consumer;
-import java.util.function.Supplier;
 
-import static com.solace.covid19.splitter.COVID19Utilities.cloneOnlyAttribute;
+import static com.solace.covid19.splitter.cases.COVID19Utilities.cloneOnlyAttribute;
 
 
 @SpringBootApplication
@@ -77,7 +74,7 @@ public class COVID19CasesSplitter {
 						} catch (JsonProcessingException e) {
 							logger.error(e.getMessage());
 						}
-						logger.info("Publishing: " + topicName);
+						logger.info("Publishing: " + topicName );
 					}
 					if(!updateMap.containsKey(key) || updateMap.get(key).getAttributes().getRecovered().compareTo(feature.getAttributes().getRecovered())!=0)
 					{

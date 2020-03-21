@@ -5,7 +5,11 @@
     <groupId>com.solace.covid19.splitter</groupId>
     <artifactId>covid-19-splitter</artifactId>
     <version>0.0.1</version>
-    <packaging>jar</packaging>
+    <modules>
+        <module>COVID19CasesSplitter</module>
+        <module>COVID19RegionalSplitter</module>
+    </modules>
+    <packaging>pom</packaging>
     <name>covid-19-splitter</name>
     <description>Auto-generated Spring Cloud Stream AsyncAPI application</description>
 

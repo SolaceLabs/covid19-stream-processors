@@ -1,4 +1,4 @@
-package com.solace.covid19.splitter;
+package com.solace.covid19.splitter.cases;
 
 public class COVID19Utilities {
     protected static COVID19UpdateSchema cloneFeature(RawJHUCSSUCOVID19.Features feature)

@@ -1,0 +1,24 @@
+spring:
+  cloud:
+    stream:
+      function:
+        definition: onCovidRawDataRegion
+      bindings:
+        onCovidRawDataRegion-in-0:
+          destination: jhu/csse/covid19/raw
+solace:
+  java:
+    host: 'tcp://mr2r9za6fwi0wf.messaging.solace.cloud:55555'
+    msgVpn: covid-19-streams
+    clientUsername: solace-cloud-client
+    clientPassword: uklgjh8hv2i6u2d0tp0lavesq4
+  jms:
+    host: 'tcp://mr2r9za6fwi0wf.messaging.solace.cloud:55555'
+    msgVpn: covid-19-streams
+    clientUsername: solace-cloud-client
+    clientPassword: uklgjh8hv2i6u2d0tp0lavesq4
+logging:
+  level:
+    root: info
+    org:
+      springframework: info

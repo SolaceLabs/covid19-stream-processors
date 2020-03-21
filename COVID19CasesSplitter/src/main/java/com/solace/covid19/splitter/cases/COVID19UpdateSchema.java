@@ -1,5 +1,5 @@
 
-package com.solace.covid19.splitter;
+package com.solace.covid19.splitter.cases;
 
 
 import com.fasterxml.jackson.annotation.JsonInclude;

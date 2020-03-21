@@ -2,11 +2,9 @@ spring:
   cloud:
     stream:
       function:
-        definition: onCovid19RawData;onCovidRawDataRegion
+        definition: onCovid19RawData
       bindings:
         onCovid19RawData-in-0:
-          destination: jhu/csse/covid19/raw
-        onCovidRawDataRegion-in-0:
           destination: jhu/csse/covid19/raw
 solace:
   java:
