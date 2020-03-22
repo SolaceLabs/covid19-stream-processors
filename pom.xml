@@ -9,6 +9,7 @@
         <module>COVID19CasesSplitter</module>
         <module>COVID19RegionalSplitter</module>
         <module>COVID19DataModels</module>
+        <module>COVID19PopulationProvider</module>
     </modules>
     <packaging>pom</packaging>
     <name>covid-19-stream-processors</name>
