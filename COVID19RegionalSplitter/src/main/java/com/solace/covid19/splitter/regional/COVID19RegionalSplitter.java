@@ -44,16 +44,18 @@ public class COVID19RegionalSplitter {
 		return rawJHUCSSUCOVID19 -> {
 			for (RawJHUCSSUCOVID19.Features feature : rawJHUCSSUCOVID19.getFeatures()) {
 				String key = topicPrefix + feature.getAttributes().getCountryRegion() + "/" + feature.getAttributes().getProvinceState();
-				if (!updateMap.containsKey(key) || updateMap.get(key).getAttributes().getLastUpdate().compareTo(feature.getAttributes().getLastUpdate()) != 0) {
+                if(feature.getAttributes().getLastUpdate() != null) {
+                    if (!updateMap.containsKey(key) || updateMap.get(key).getAttributes().getLastUpdate().compareTo(feature.getAttributes().getLastUpdate()) != 0) {
 
-					try {
-						jmsTemplate.convertAndSend(key, mapper.writeValueAsString(cloneFeature(feature)));
-					} catch (JsonProcessingException e) {
-						logger.error(e.getMessage());
-					}
-					updateMap.put(key, feature);
-					logger.info("Publishing: " + key);
-				}
+                        try {
+                            jmsTemplate.convertAndSend(key, mapper.writeValueAsString(cloneFeature(feature)));
+                        } catch (JsonProcessingException e) {
+                            logger.error(e.getMessage());
+                        }
+                        updateMap.put(key, feature);
+                        logger.info("Publishing: " + key);
+                    }
+                }
 			}
 		};
 	}

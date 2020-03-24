@@ -45,50 +45,48 @@ public class COVID19CasesSplitter {
 		// Add business logic here.
 		return rawJHUCSSUCOVID19 -> {
 			for(RawJHUCSSUCOVID19.Features feature : rawJHUCSSUCOVID19.getFeatures()) {
-				String key = topicPrefix + feature.getAttributes().getCountryRegion()+"/"+ feature.getAttributes().getProvinceState();
-				if (!updateMap.containsKey(key) || updateMap.get(key).getAttributes().getLastUpdate().compareTo(feature.getAttributes().getLastUpdate())!=0)
+				String key = topicPrefix + feature.getAttributes().getCountryRegion() + "/" + feature.getAttributes().getProvinceState();
+				if(feature.getAttributes().getLastUpdate() != null)
 				{
-					if(!updateMap.containsKey(key) || updateMap.get(key).getAttributes().getActive().compareTo(feature.getAttributes().getActive())!=0)
-					{
-						String topicName = topicPrefix + "active/update/" + feature.getAttributes().getCountryRegion() + "/" + feature.getAttributes().getProvinceState();
-						try {
-							jmsTemplate.convertAndSend(topicName, mapper.writeValueAsString(cloneOnlyAttribute(feature, COVID19Utilities.DataAttribute.ACTIVE)));
-						} catch (JsonProcessingException e) {
-							logger.error(e.getMessage());
+					if (!updateMap.containsKey(key) || updateMap.get(key).getAttributes().getLastUpdate().compareTo(feature.getAttributes().getLastUpdate()) != 0) {
+						if (!updateMap.containsKey(key) || updateMap.get(key).getAttributes().getActive().compareTo(feature.getAttributes().getActive()) != 0) {
+							String topicName = topicPrefix + "active/update/" + feature.getAttributes().getCountryRegion() + "/" + feature.getAttributes().getProvinceState();
+							try {
+								jmsTemplate.convertAndSend(topicName, mapper.writeValueAsString(cloneOnlyAttribute(feature, COVID19Utilities.DataAttribute.ACTIVE)));
+							} catch (JsonProcessingException e) {
+								logger.error(e.getMessage());
+							}
+							logger.info("Publishing: " + topicName);
 						}
-						logger.info("Publishing: " + topicName);
-					}
-					if(!updateMap.containsKey(key) || updateMap.get(key).getAttributes().getConfirmed().compareTo(feature.getAttributes().getConfirmed())!=0)
-					{
-						String topicName = topicPrefix + "confirmed/update/" + feature.getAttributes().getCountryRegion() + "/" + feature.getAttributes().getProvinceState();
-						try {
-							jmsTemplate.convertAndSend(topicName, mapper.writeValueAsString(cloneOnlyAttribute(feature, COVID19Utilities.DataAttribute.CONFIRMED)));
-						} catch (JsonProcessingException e) {
-							logger.error(e.getMessage());
+						if (!updateMap.containsKey(key) || updateMap.get(key).getAttributes().getConfirmed().compareTo(feature.getAttributes().getConfirmed()) != 0) {
+							String topicName = topicPrefix + "confirmed/update/" + feature.getAttributes().getCountryRegion() + "/" + feature.getAttributes().getProvinceState();
+							try {
+								jmsTemplate.convertAndSend(topicName, mapper.writeValueAsString(cloneOnlyAttribute(feature, COVID19Utilities.DataAttribute.CONFIRMED)));
+							} catch (JsonProcessingException e) {
+								logger.error(e.getMessage());
+							}
+							logger.info("Publishing: " + topicName);
 						}
-						logger.info("Publishing: " + topicName);
-					}
-					if(!updateMap.containsKey(key) || updateMap.get(key).getAttributes().getDeaths().compareTo(feature.getAttributes().getDeaths())!=0)
-					{
-						String topicName = topicPrefix + "deaths/update/" + feature.getAttributes().getCountryRegion() + "/" + feature.getAttributes().getProvinceState();
-						try {
-							jmsTemplate.convertAndSend(topicName, mapper.writeValueAsString(cloneOnlyAttribute(feature, COVID19Utilities.DataAttribute.DEATHS)));
-						} catch (JsonProcessingException e) {
-							logger.error(e.getMessage());
+						if (!updateMap.containsKey(key) || updateMap.get(key).getAttributes().getDeaths().compareTo(feature.getAttributes().getDeaths()) != 0) {
+							String topicName = topicPrefix + "deaths/update/" + feature.getAttributes().getCountryRegion() + "/" + feature.getAttributes().getProvinceState();
+							try {
+								jmsTemplate.convertAndSend(topicName, mapper.writeValueAsString(cloneOnlyAttribute(feature, COVID19Utilities.DataAttribute.DEATHS)));
+							} catch (JsonProcessingException e) {
+								logger.error(e.getMessage());
+							}
+							logger.info("Publishing: " + topicName);
 						}
-						logger.info("Publishing: " + topicName );
-					}
-					if(!updateMap.containsKey(key) || updateMap.get(key).getAttributes().getRecovered().compareTo(feature.getAttributes().getRecovered())!=0)
-					{
-						String topicName = topicPrefix + "recovered/update/" + feature.getAttributes().getCountryRegion() + "/" + feature.getAttributes().getProvinceState();
-						try {
-							jmsTemplate.convertAndSend(topicName, mapper.writeValueAsString(cloneOnlyAttribute(feature, COVID19Utilities.DataAttribute.RECOVERED)));
-						} catch (JsonProcessingException e) {
-							logger.error(e.getMessage());
+						if (!updateMap.containsKey(key) || updateMap.get(key).getAttributes().getRecovered().compareTo(feature.getAttributes().getRecovered()) != 0) {
+							String topicName = topicPrefix + "recovered/update/" + feature.getAttributes().getCountryRegion() + "/" + feature.getAttributes().getProvinceState();
+							try {
+								jmsTemplate.convertAndSend(topicName, mapper.writeValueAsString(cloneOnlyAttribute(feature, COVID19Utilities.DataAttribute.RECOVERED)));
+							} catch (JsonProcessingException e) {
+								logger.error(e.getMessage());
+							}
+							logger.info("Publishing: " + topicName);
 						}
-						logger.info("Publishing: " + topicName);
+						updateMap.put(key, feature);
 					}
-					updateMap.put(key, feature);
 				}
 			}
 		};
