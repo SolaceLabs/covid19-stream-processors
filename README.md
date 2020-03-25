@@ -1,39 +1,24 @@
 Table of Contents
 =================
    * [COVID-19 Stream Processor](#covid-19-stream-processor)
-      * [Available Streams](#available-streams)
       * [How to consume](#how-to-consume)
          * [1. Connection information](#1-connection-information)
             * [Connections credentials](#connections-credentials)
                * [Credentials](#credentials)
                * [Connection Points](#connection-points)
          * [2. Choose your Topics](#2-choose-your-topics)
+            * [Streams are available on these topics](#streams-are-available-on-these-topics)
             * [Example topic subscription](#example-topic-subscription)
          * [3. Create your application](#3-create-your-application)
             * [Sample Applications](#sample-applications)
-            * [Spring Boot samples](#spring-boot-samples)
+            * [COVID19 Stream Processors](#covid19-stream-processors)
       * [Disclaimer](#disclaimer)
 
 # COVID-19 Stream Processor
 
 This repo provides streams information and example applications on how to consume the different topics available for consumption. The event streams published are processed directly from the [Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE)](https://systems.jhu.edu/) available data. Any client application could consume those streams by subscribing to the topic of choice as per the diagram below. Note that the streams are provided over Solace PubSub+ Event Broker that has built-in support for a variety of open standard protocols and APIs.
 
-![PubSub+ E2E](./img/PubSub_COVID.jpg)
-
-## Available Streams
-As of right now, the following is the list of streams available for consumption 
-
-| Topic |  Description| Notes
-| ---- |----|-------|
-|`jhu/csse/covid19/raw`| Raw data |
-|`jhu/csse/covid19/cases/region/update/{attributes.countryRegion}/{attributes.provinceState}`| Active/Deaths/Confirmed/Recovered for a region/state in one event | |
-|`jhu/csse/covid19/cases/deaths/update/{attributes.countryRegion}/{attributes.provinceState}`| Deaths for a region/state | |
-|`jhu/csse/covid19/cases/active/update/{attributes.countryRegion}/{attributes.provinceState}`| Active cases for a region/state | |
-|`jhu/csse/covid19/cases/confirmed/update/{attributes.countryRegion}/{attributes.provinceState}`| Confirmed for a region/state | |
-|`jhu/csse/covid19/cases/recovered/update/{attributes.countryRegion}/{attributes.provinceState}`| Recovered for a region/state | |
-|`jhu/csse/covid19/cases/active/population/update/US/{attributes.provinceState}`| Shows the percentage of the population affected | Only US for now |
-
-   
+![PubSub+ E2E](./img/PubSub_COVID.jpg) 
 
 ## How to consume
 ### 1. Connection information
@@ -61,6 +46,20 @@ Note: if you want to receive notifications via a REST end point that supports `P
 
 ### 2. Choose your Topics
 
+
+#### Streams are available on these topics
+As of right now, the following is the list of streams available for consumption 
+
+| Topic |  Description| Notes
+| ---- |----|-------|
+|`jhu/csse/covid19/raw`| Raw data |
+|`jhu/csse/covid19/cases/region/update/{attributes.countryRegion}/{attributes.provinceState}`| Active/Deaths/Confirmed/Recovered for a region/state in one event | |
+|`jhu/csse/covid19/cases/deaths/update/{attributes.countryRegion}/{attributes.provinceState}`| Deaths for a region/state | |
+|`jhu/csse/covid19/cases/active/update/{attributes.countryRegion}/{attributes.provinceState}`| Active cases for a region/state | |
+|`jhu/csse/covid19/cases/confirmed/update/{attributes.countryRegion}/{attributes.provinceState}`| Confirmed for a region/state | |
+|`jhu/csse/covid19/cases/recovered/update/{attributes.countryRegion}/{attributes.provinceState}`| Recovered for a region/state | |
+|`jhu/csse/covid19/cases/active/population/update/US/{attributes.provinceState}`| Shows the percentage of the population affected | Only US for now |
+
 Subscribe to one or more of the available topics above to receive the required data. For more more information on using topic wildcards check out [SMF Topic Subscriptions](https://docs.solace.com/PubSub-Basics/Wildcard-Charaters-Topic-Subs.htm) and [MQTT Topic Subscriptions](https://docs.solace.com/Open-APIs-Protocols/MQTT/MQTT-Topics.htm#Wildcard)
 
 #### Example topic subscription
@@ -80,19 +79,17 @@ Subscribing to the following streams will give you the corresponding results:
 After connecting and choosing the topics to listen on, its time to build your application. Check out the examples below for applications that consume the streams
 
 #### Sample Applications
-*Python MQTT example*   
-*NodeJS/JS example*     
-*https://github.com/SolaceTraining/solace-workshop-scs/blob/master/10-spring-boot-mqttwebapp/src/main/resources/static/mqttListener.html*  
+| Application | Language | Description
+| ---- | ---| --- |
 
-
-#### Spring Boot samples
-Below are Spring Boot microservices that are being used to create the event surrent streams that are available for consumption. They are also good examples if you would like to consume the streams and republish them into an event broker
+#### COVID19 Stream Processors
+Below are Spring Boot microservices that are being used to create the event current streams that are available for consumption. They are also good examples if you would like to consume the streams and republish them into an event broker. Note that they are not intended to be run with the provided credentials as we are running them as a services
 
 | Application        | Version           | Integration  | Description |
 | ------------- |:-------------:| :-----| :-----|
 | COVID19CaseSplitter      | 0.1 | Spring | This application consumes RAW JHU COVID19 data, and publishes smaller updates |
 | COVID19RegionalSplitter | 0.1      |    Spring | This application consumes RAW JHU COVID19 data, splits it into regional updates and publishes smaller regional updates
-| COVID19PopulationProvider     | 0.1      |   Spring | This application publishes the population in the areas
+| COVID19PopulationProvider     | 0.1      |   Spring | This application publishes the percentage of population affected in the areas
 
 ![EventPortal](./img/EventPortal.png)
 

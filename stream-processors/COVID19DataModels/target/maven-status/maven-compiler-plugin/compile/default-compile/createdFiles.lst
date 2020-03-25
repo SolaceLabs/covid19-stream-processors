@@ -1,0 +1,15 @@
+com/solace/covid19/data/models/COVID19Utilities$1.class
+com/solace/covid19/data/models/RawJHUCSSUCOVID19$Features.class
+com/solace/covid19/data/models/COVID19UpdateSchema$Attributes.class
+com/solace/covid19/data/models/RawJHUCSSUCOVID19$UniqueIdField.class
+com/solace/covid19/data/models/RawJHUCSSUCOVID19$Fields.class
+com/solace/covid19/data/models/RawJHUCSSUCOVID19$Features$Geometry.class
+com/solace/covid19/data/models/COVID19UpdatePopulationStats$Population.class
+com/solace/covid19/data/models/COVID19UpdateSchema$Geometry.class
+com/solace/covid19/data/models/COVID19UpdatePopulationStats.class
+com/solace/covid19/data/models/COVID19UpdateSchema.class
+com/solace/covid19/data/models/COVID19Utilities.class
+com/solace/covid19/data/models/RawJHUCSSUCOVID19$SpatialReference.class
+com/solace/covid19/data/models/RawJHUCSSUCOVID19$Features$Attributes.class
+com/solace/covid19/data/models/COVID19Utilities$DataAttribute.class
+com/solace/covid19/data/models/RawJHUCSSUCOVID19.class
