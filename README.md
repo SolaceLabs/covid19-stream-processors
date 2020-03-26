@@ -13,6 +13,7 @@ Table of Contents
          * [3. Create your application](#3-create-your-application)
             * [Sample Applications](#sample-applications)
             * [COVID19 Stream Processors](#covid19-stream-processors)
+      * [Contribution](#contribution)
       * [Disclaimer](#disclaimer)
 
 
@@ -48,7 +49,7 @@ Connect to the PubSub+ broker using one of the connection end points below. For 
 |`WebSocket MQTT Host`|`ws://mr2r9za6fwi0wf.messaging.solace.cloud:8000`|
 |`AMQP 1.0`|`amqp://mr2r9za6fwi0wf.messaging.solace.cloud:5672`|
 
-Note: if you want to receive notifications via a REST end point that supports `POST`, contact us at covid19@solace.com
+Note: if you want to receive notifications via a REST end point that supports `POST`, contact us at covid19-project@solace.com
 
 
 ### 2. Choose your Topics
@@ -96,14 +97,16 @@ Below are Spring Boot microservices that are being used to create the event curr
 
 | Application        | Version           | Integration  | Description |
 | ------------- |:-------------:| :-----| :-----|
-| COVID19CaseSplitter      | 0.1 | Spring | This application consumes RAW JHU COVID19 data, and publishes smaller updates |
-| COVID19RegionalSplitter | 0.1      |    Spring | This application consumes RAW JHU COVID19 data, splits it into regional updates and publishes smaller regional updates
-| COVID19PopulationProvider     | 0.1      |   Spring | This application publishes the percentage of population affected in the areas
+| [COVID19CaseSplitter](./samples/COVID19CaseSplitter)      | 0.1 | Spring | This application consumes RAW JHU COVID19 data, and publishes smaller updates |
+| [COVID19RegionalSplitter](./samples/COVID19RegionalSplitter) | 0.1      |    Spring | This application consumes RAW JHU COVID19 data, splits it into regional updates and publishes smaller regional updates
+| [COVID19PopulationProvider](./samples/COVID19PopulationProvider)     | 0.1      |   Spring | This application publishes the percentage of population affected in the areas
 
 ![EventPortal](./img/EventPortal.png)
 
-Note: If you have your own COVID-19 event stream that you'd like to share please contact us at covid19@solace.com
+Note: Contact us at covid19-project@solace.com to add more event stream into the current broker
 
+## Contribution
+See [Contribution guidelines](./CONTRIBUTING.md) form more details
 
 ## Disclaimer
 1. As per Johns Hopkins University [Terms of Use](https://github.com/CSSEGISandData/COVID-19) this data is public strictly for educational and academic research purposes.
