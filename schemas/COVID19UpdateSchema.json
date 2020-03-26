@@ -1,0 +1,124 @@
+{
+    "type": "object",
+    "required": [
+        "attributes",
+        "geometry"
+    ],
+    "properties": {
+        "attributes": {
+            "type": "object",
+            "default": {},
+            "examples": [{
+                "provinceState": "Ohio",
+                "countryRegion": "US",
+                "recovered": 0,
+                "long_": -82.764915,
+                "active": 67,
+                "deaths": 0,
+                "lat": 40.388783,
+                "confirmed": 67,
+                "lastUpdate": 1584478382000
+            }],
+            "required": [
+                "long_",
+                "recovered",
+                "countryRegion",
+                "active",
+                "lastUpdate",
+                "deaths",
+                "confirmed",
+                "provinceState",
+                "lat"
+            ],
+            "properties": {
+                "long_": {
+                    "type": "number",
+                    "default": 0,
+                    "examples": [-82.764915]
+                },
+                "recovered": {
+                    "type": "integer",
+                    "default": 0,
+                    "examples": [
+                        0
+                    ]
+                },
+                "countryRegion": {
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                        "US"
+                    ]
+                },
+                "active": {
+                    "type": "integer",
+                    "default": 0,
+                    "examples": [
+                        67
+                    ]
+                },
+                "lastUpdate": {
+                    "type": "integer",
+                    "default": 0,
+                    "examples": [
+                        1584478382000
+                    ]
+                },
+                "deaths": {
+                    "type": "integer",
+                    "default": 0,
+                    "examples": [
+                        0
+                    ]
+                },
+                "confirmed": {
+                    "type": "integer",
+                    "default": 0,
+                    "examples": [
+                        67
+                    ]
+                },
+                "provinceState": {
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                        "Ohio"
+                    ]
+                },
+                "lat": {
+                    "type": "number",
+                    "default": 0,
+                    "examples": [
+                        40.388783
+                    ]
+                }
+            }
+        },
+        "geometry": {
+            "type": "object",
+            "default": {},
+            "examples": [{
+                "x": -82.76491499999997,
+                "y": 40.388783000000046
+            }],
+            "required": [
+                "x",
+                "y"
+            ],
+            "properties": {
+                "x": {
+                    "type": "number",
+                    "default": 0,
+                    "examples": [-82.76491499999997]
+                },
+                "y": {
+                    "type": "number",
+                    "default": 0,
+                    "examples": [
+                        40.388783000000046
+                    ]
+                }
+            }
+        }
+    }
+}

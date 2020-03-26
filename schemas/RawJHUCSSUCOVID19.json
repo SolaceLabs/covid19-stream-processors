@@ -1,0 +1,195 @@
+{
+    "type": "object",
+    "title": "The Root Schema",
+    "required": [
+        "objectIdFieldName",
+        "uniqueIdField",
+        "globalIdFieldName",
+        "geometryType",
+        "spatialReference",
+        "fields",
+        "features"
+    ],
+    "properties": {
+        "objectIdFieldName": {
+            "type": "string",
+            "default": ""
+        },
+        "uniqueIdField": {
+            "type": "object",
+            "default": {},
+            "required": [
+                "name",
+                "isSystemMaintained"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "default": ""
+                },
+                "isSystemMaintained": {
+                    "type": "boolean",
+                    "default": false
+                }
+            }
+        },
+        "globalIdFieldName": {
+            "type": "string",
+            "default": ""
+        },
+        "geometryType": {
+            "type": "string",
+            "default": ""
+        },
+        "spatialReference": {
+            "type": "object",
+            "default": {},
+            "required": [
+                "wkid",
+                "latestWkid"
+            ],
+            "properties": {
+                "wkid": {
+                    "type": "integer",
+                    "default": 0
+                },
+                "latestWkid": {
+                    "type": "integer",
+                    "default": 0
+                }
+            }
+        },
+        "fields": {
+            "type": "array",
+            "default": [],
+            "items": {
+                "type": "object",
+                "default": {},
+                "required": [
+                    "name",
+                    "type",
+                    "alias",
+                    "sqlType",
+                    "length",
+                    "domain",
+                    "defaultValue"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "default": ""
+                    },
+                    "type": {
+                        "type": "string",
+                        "default": ""
+                    },
+                    "alias": {
+                        "type": "string",
+                        "default": ""
+                    },
+                    "sqlType": {
+                        "type": "string",
+                        "default": ""
+                    },
+                    "length": {
+                        "type": "integer",
+                        "default": 0
+                    },
+                    "domain": {
+                        "type": "string",
+                        "default": null
+                    },
+                    "defaultValue": {
+                        "type": "string",
+                        "default": null
+                    }
+                }
+            }
+        },
+        "features": {
+            "type": "array",
+            "default": [],
+            "items": {
+                "type": "object",
+                "default": {},
+                "required": [
+                    "attributes",
+                    "geometry"
+                ],
+                "properties": {
+                    "attributes": {
+                        "type": "object",
+                        "default": {},
+                        "required": [
+                            "Province_State",
+                            "Country_Region",
+                            "Last_Update",
+                            "Lat",
+                            "Long_",
+                            "Confirmed",
+                            "Recovered",
+                            "Deaths",
+                            "Active"
+                        ],
+                        "properties": {
+                            "Province_State": {
+                                "type": "string",
+                                "default": ""
+                            },
+                            "Country_Region": {
+                                "type": "string",
+                                "default": ""
+                            },
+                            "Last_Update": {
+                                "type": "integer",
+                                "default": 0
+                            },
+                            "Lat": {
+                                "type": "number",
+                                "default": 0
+                            },
+                            "Long_": {
+                                "type": "number",
+                                "default": 0
+                            },
+                            "Confirmed": {
+                                "type": "integer",
+                                "default": 0
+                            },
+                            "Recovered": {
+                                "type": "integer",
+                                "default": 0
+                            },
+                            "Deaths": {
+                                "type": "integer",
+                                "default": 0
+                            },
+                            "Active": {
+                                "type": "integer",
+                                "default": 0
+                            }
+                        }
+                    },
+                    "geometry": {
+                        "type": "object",
+                        "default": {},
+                        "required": [
+                            "x",
+                            "y"
+                        ],
+                        "properties": {
+                            "x": {
+                                "type": "number",
+                                "default": 0
+                            },
+                            "y": {
+                                "type": "number",
+                                "default": 0
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
