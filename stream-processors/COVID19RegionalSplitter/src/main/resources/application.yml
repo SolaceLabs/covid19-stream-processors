@@ -8,15 +8,15 @@ spring:
           destination: jhu/csse/covid19/raw
 solace:
   java:
-    host: 'tcp://localhost:55555'
-    msgVpn: default
-    clientUsername: default
-    clientPassword: default
+    host: ${host:tcp://localhost:55555}
+    msgVpn: ${msgVpn:default}
+    clientUsername: ${clientUsername:default}
+    clientPassword: ${clientPassword:default}
   jms:
-    host: 'tcp://localhost:55555'
-    msgVpn: default
-    clientUsername: default
-    clientPassword: default
+    host: ${host:tcp://localhost:55555}
+    msgVpn: ${msgVpn:default}
+    clientUsername: ${clientUsername:default}
+    clientPassword: ${clientPassword:default}
 logging:
   level:
     root: info

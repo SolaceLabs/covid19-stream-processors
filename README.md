@@ -29,8 +29,8 @@ Connect to the PubSub+ broker using one of the connection end points below. For 
 #### Connections credentials
 ##### Credentials
 `MessageVPN` : `covid-19-streams`  
-`Username` : `covid-public-client`  
-`Password`: `covid19` 
+`Client Username` : `covid-public-client`  
+`Client Password`: `covid19` 
 
 ##### Connection Points
 | API/Protocol | Host |

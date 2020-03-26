@@ -2,7 +2,7 @@
 	.factorypath
 	.project
 	.settings
-	target
+	target/
     .vscode/*
 	.DS_Store
 	.project
