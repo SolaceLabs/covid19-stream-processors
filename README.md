@@ -52,13 +52,13 @@ As of right now, the following is the list of streams available for consumption
 
 | Topic |  Schema| Description| Notes
 | ---- |----|-------| --- |
-|`jhu/csse/covid19/raw`| [schema](./schemas/RawJHUCSSUCOVID19.json) | Raw data |
-|`jhu/csse/covid19/cases/region/update/{attributes.countryRegion}/{attributes.provinceState}`| [schema](./schemas/COVID19UpdateSchema.json) | Active/Deaths/Confirmed/Recovered for a region/state in one event | |
-|`jhu/csse/covid19/cases/deaths/update/{attributes.countryRegion}/{attributes.provinceState}`| [schema](./schemas/COVID19UpdateTypeSchema.json) | Deaths for a region/state | |
-|`jhu/csse/covid19/cases/active/update/{attributes.countryRegion}/{attributes.provinceState}`| [schema](./schemas/COVID19UpdateTypeSchema.json) | Active cases for a region/state | |
-|`jhu/csse/covid19/cases/confirmed/update/{attributes.countryRegion}/{attributes.provinceState}`| [schema](./schemas/COVID19UpdateTypeSchema.json) | Confirmed for a region/state | |
-|`jhu/csse/covid19/cases/recovered/update/{attributes.countryRegion}/{attributes.provinceState}`| [schema](./schemas/COVID19UpdateTypeSchema.json) | Recovered for a region/state | |
-|`jhu/csse/covid19/cases/active/population/update/US/{attributes.provinceState}`| [schema](./schemas/COVID19UpdatePopulationStats.json) | Shows the percentage of the population affected | Only US for now |
+|`jhu/csse/covid19/raw`| [Raw Data Schema](./schemas/RawJHUCSSUCOVID19.json) | Raw data |
+|`jhu/csse/covid19/cases/region/update/{attributes.countryRegion}/{attributes.provinceState}`| [Regional Update Schema](./schemas/COVID19UpdateSchema.json) | Active/Deaths/Confirmed/Recovered for a region/state in one event | |
+|`jhu/csse/covid19/cases/deaths/update/{attributes.countryRegion}/{attributes.provinceState}`| [Update Type Schema](./schemas/COVID19UpdateTypeSchema.json) | Deaths for a region/state | |
+|`jhu/csse/covid19/cases/active/update/{attributes.countryRegion}/{attributes.provinceState}`| [Update Type Schema](./schemas/COVID19UpdateTypeSchema.json) | Active cases for a region/state | |
+|`jhu/csse/covid19/cases/confirmed/update/{attributes.countryRegion}/{attributes.provinceState}`| [Update Type Schema](./schemas/COVID19UpdateTypeSchema.json) | Confirmed for a region/state | |
+|`jhu/csse/covid19/cases/recovered/update/{attributes.countryRegion}/{attributes.provinceState}`| [Update Type Schema](./schemas/COVID19UpdateTypeSchema.json) | Recovered for a region/state | |
+|`jhu/csse/covid19/cases/active/population/update/US/{attributes.provinceState}`| [Update Population Schema](./schemas/COVID19UpdatePopulationStats.json) | Shows the percentage of the population affected | Only US for now |
 
 Subscribe to one or more of the available topics above to receive the required data. For more more information on using topic wildcards check out [SMF Topic Subscriptions](https://docs.solace.com/PubSub-Basics/Wildcard-Charaters-Topic-Subs.htm) and [MQTT Topic Subscriptions](https://docs.solace.com/Open-APIs-Protocols/MQTT/MQTT-Topics.htm#Wildcard)
 
