@@ -14,6 +14,11 @@ Table of Contents
             * [COVID19 Stream Processors](#covid19-stream-processors)
       * [Disclaimer](#disclaimer)
 
+
+# Overview
+A team at Johns Hopkins University has developed this [interactive web-based dashboard](https://www.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6) to provide researchers, public health authorities, and the general public with a user-friendly tool to track the COVID-19 pandemic as it unfolds. Their team has also been nice enough to periodically (usually once or twice a day) upload the data to this [Github Repo](https://github.com/CSSEGISandData/COVID-19) which has been very popular in the developer community, but has led to developers wanting to receive updates in a more efficient manner. To further their teams’ efforts, help the community, and to “do our part” we at Solace have created an application which polls the feature service, looks for differences in the data and publish updates into an Event Broker we are making available for public use. This allows anyone to consume data updates in near real-time and decrease the load on JHU’s own servers. The data is being published into the event brokers using dynamic topics which allows subscribers to pick, choose and filter on the specific data that they want to consume, e.g.,  a developer could choose to only get updated when an update it available for a specific Country & Province/State that they are interested in. This repository shares the information needed for anyone to consume these event streams :)
+
+
 # COVID-19 Stream Processor
 
 This repo provides streams information and example applications on how to consume the different topics available for consumption. The event streams published are processed directly from the [Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE)](https://systems.jhu.edu/) available data. Any client application could consume those streams by subscribing to the topic of choice as per the diagram below. Note that the streams are provided over Solace PubSub+ Event Broker that has built-in support for a variety of open standard protocols and APIs.
