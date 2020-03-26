@@ -67,6 +67,7 @@ public class COVID19RegionalSplitter {
         ccf.setTargetConnectionFactory(jmsTemplate.getConnectionFactory());
         jmsTemplate.setConnectionFactory(ccf);
         jmsTemplate.setPubSubDomain(true);
+        jmsTemplate.setTimeToLive(24*60*60*1000);
     }
 }
 
