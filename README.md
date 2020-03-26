@@ -68,6 +68,8 @@ As of right now, the following is the list of streams available for consumption
 
 Subscribe to one or more of the available topics above to receive the required data. For more more information on using topic wildcards check out [SMF Topic Subscriptions](https://docs.solace.com/PubSub-Basics/Wildcard-Charaters-Topic-Subs.htm) and [MQTT Topic Subscriptions](https://docs.solace.com/Open-APIs-Protocols/MQTT/MQTT-Topics.htm#Wildcard)
 
+Note: If you have your own COVID-19 event stream that you'd like to share please contact us at covid19@solace.com
+
 #### Example topic subscription
 Subscribing to the following streams will give you the corresponding results:
 
@@ -84,7 +86,7 @@ Subscribing to the following streams will give you the corresponding results:
 ### 3. Create your application
 After connecting and choosing the topics to listen on, its time to build your application. Check out the examples below for applications that consume the streams
 
-#### Sample Applications
+#### Sample Applications to Get Started Quickly (Coming Soon!)
 | Application | Language | Description
 | ---- | ---| --- |
 
@@ -99,7 +101,7 @@ Below are Spring Boot microservices that are being used to create the event curr
 
 ![EventPortal](./img/EventPortal.png)
 
-Note: Contact us to add more event stream into the current broker
+Note: If you have your own COVID-19 event stream that you'd like to share please contact us at covid19@solace.com
 
 
 ## Disclaimer
