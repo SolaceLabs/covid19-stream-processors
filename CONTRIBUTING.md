@@ -4,6 +4,7 @@ We'd love for you to contribute and welcome your help. Here are some guidelines 
 
 - [Issues and Bugs](#issue)
 - [Writing a new sample](#sample)
+- [Writing a new stream processor](#stream)
 - [Submitting a fix](#submitting)
 - [Feature Requests](#features)
 - [Questions](#questions)
