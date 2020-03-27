@@ -1,0 +1,53 @@
+body {
+    background-color: #333333
+}
+
+p {
+    margin: 0px;
+    font-family: "Lucida Console", "Inconsolata", monospace;
+    font-size: 90%;
+    color: #00CB95
+}
+
+input {
+    width: auto;
+}
+
+h2,
+h3 {
+    margin: 0px;
+    font-family: Arial, sans-serif;
+    color: #00CB95
+}
+
+hr {
+    border-color: #00CB95;
+}
+
+#div_tl {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    z-index: 99;
+    background-color: rgba(255, 255, 255, 0);
+    padding: 10px;
+}
+
+.button {
+    background-color: #00CB95;
+    border: none;
+    color: #333333;
+    padding: 5px 30px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#pause {
+    background-color: red;
+}
+
+.subscribe {
+    position: al;
+}
