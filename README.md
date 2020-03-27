@@ -60,7 +60,7 @@ As of right now, the following is the list of streams available for consumption
 
 | Topic |  Schema| Description| Notes
 | ---- |----|-------| --- |
-|`jhu/csse/covid19/raw`| [Raw Data Schema](./schemas/RawJHUCSSUCOVID19.json) | Raw data published every ~45 seconds |
+|`jhu/csse/covid19/raw`| [Raw Data Schema](./schemas/RawJHUCSSUCOVID19.json) | Raw data for all countries published every ~45 seconds |
 |`jhu/csse/covid19/cases/region/update/{attributes.countryRegion}/{attributes.provinceState}`| [Regional Update Schema](./schemas/COVID19UpdateSchema.json) | Active/Deaths/Confirmed/Recovered for a region/state in one event | |
 |`jhu/csse/covid19/cases/deaths/update/{attributes.countryRegion}/{attributes.provinceState}`| [Update Type Schema](./schemas/COVID19UpdateTypeSchema.json) | Deaths for a region/state | |
 |`jhu/csse/covid19/cases/active/update/{attributes.countryRegion}/{attributes.provinceState}`| [Update Type Schema](./schemas/COVID19UpdateTypeSchema.json) | Active cases for a region/state | |
