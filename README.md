@@ -70,7 +70,7 @@ As of right now, the following is the list of streams available for consumption
 | Shows the updated percentage of the population affected | [Update Population Schema](./schemas/COVID19UpdatePopulationStats.json) | `jhu/csse/covid19/cases/active/population/update/US/{attributes.provinceState}`|Only US for now |
 
 Subscribe to one or more of the available topics above to receive the required data. 
-**Note that the streams defined as update above only send events when *updates* actually occur which can be infrequently. For development purposes we are providing [test topics](#test-topics) that get published every few minutes **
+**Note that the streams defined as *update* above only send events when updates actually occur which can be infrequently. For development purposes we are providing [test topics](#test-topics) that get published every few minutes**
 
 For more more information on using topic wildcards check out [SMF Topic Subscriptions](https://docs.solace.com/PubSub-Basics/Wildcard-Charaters-Topic-Subs.htm) and [MQTT Topic Subscriptions](https://docs.solace.com/Open-APIs-Protocols/MQTT/MQTT-Topics.htm#Wildcard)
 
