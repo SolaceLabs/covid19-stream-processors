@@ -74,7 +74,7 @@ Subscribe to one or more of the available topics above to receive the required d
 
 For more more information on using topic wildcards check out [SMF Topic Subscriptions](https://docs.solace.com/PubSub-Basics/Wildcard-Charaters-Topic-Subs.htm) and [MQTT Topic Subscriptions](https://docs.solace.com/Open-APIs-Protocols/MQTT/MQTT-Topics.htm#Wildcard)
 
-Note: If you have your own COVID-19 event stream that you'd like to share please contact us at covid19@solace.com
+Note: If you have your own COVID-19 event stream that you'd like to share please contact us at covid19-project@solace.com
 
 #### Example topic subscriptions
 Subscribing to the following streams will give you the corresponding results:
