@@ -1,8 +1,9 @@
-	.classpath
-	.factorypath
-	.project
-	.settings
-	target/
-    .vscode/*
-	.DS_Store
-	.project
+.classpath
+.factorypath
+.project
+.settings
+target/
+.vscode/*
+.DS_Store
+.project
+manifest.yml
