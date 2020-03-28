@@ -103,9 +103,9 @@ Below are Spring Boot microservices that are being used to create the event curr
 
 | Application        | Version           | Integration  | Description |
 | ------------- |:-------------:| :-----| :-----|
-| [COVID19CaseSplitter](./samples/COVID19CaseSplitter)      | 0.1 | Spring | This application consumes RAW JHU COVID19 data, and publishes smaller updates |
-| [COVID19RegionalSplitter](./samples/COVID19RegionalSplitter) | 0.1      |    Spring | This application consumes RAW JHU COVID19 data, splits it into regional updates and publishes smaller regional updates
-| [COVID19PopulationProvider](./samples/COVID19PopulationProvider)     | 0.1      |   Spring | This application publishes the percentage of population affected in the areas
+| [COVID19CaseSplitter](./stream-processors/COVID19CaseSplitter)      | 0.1 | Spring | This application consumes RAW JHU COVID19 data, and publishes smaller updates |
+| [COVID19RegionalSplitter](./stream-processors/COVID19RegionalSplitter) | 0.1      |    Spring | This application consumes RAW JHU COVID19 data, splits it into regional updates and publishes smaller regional updates
+| [COVID19PopulationProvider](./stream-processors/COVID19PopulationProvider)     | 0.1      |   Spring | This application publishes the percentage of population affected in the areas
 
 ![EventPortal](./img/EventPortal.png)
 
