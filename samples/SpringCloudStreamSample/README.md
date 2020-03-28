@@ -15,12 +15,12 @@ You can choose which data you want by modifying the topic subscriptions in the a
 ### Install Data Model
 `cd jhu-covid19-stream-processors/stream-processors/COVID19DataModels/`
 
-`mvnw clean install`
+`./mvnw clean install`
 
 ### Run the Application
 `cd jhu-covid19-stream-processors/samples/SpringCloudStreamSample`
 
-`mvnw spring-boot:run` 
+`./mvnw spring-boot:run` 
 
 ## More Information
 * [COVID-19 Topic Information](https://github.com/SolaceLabs/jhu-covid19-stream-processors#2-choose-your-topics):  
