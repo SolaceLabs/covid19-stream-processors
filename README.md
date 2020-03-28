@@ -129,6 +129,9 @@ This section includes information about test streams that are available. Since a
 ## Contribution
 See [Contribution guidelines](./CONTRIBUTING.md) form more details
 
+## Credit
+* Social Preview Image by [Gerd Altmann](https://pixabay.com/users/geralt-9301/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=3513216) from [Pixabay](https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=3513216)
+
 ## Disclaimer
 1. As per Johns Hopkins University [Terms of Use](https://github.com/CSSEGISandData/COVID-19) this data is public strictly for educational and academic research purposes.
 1. Data streams are provided and maintained by [Solace](https://www.solace.dev/) under the same terms of use.
