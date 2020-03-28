@@ -11,7 +11,7 @@ Table of Contents
             * [Streams are available on these topics](#streams-are-available-on-these-topics)
             * [Example topic subscription](#example-topic-subscription)
          * [3. Create your application](#3-create-your-application)
-            * [Sample Applications](#sample-applications)
+            * [Sample Applications](#sample-applications-to-get-started-quickly)
             * [COVID19 Stream Processors](#covid19-stream-processors)
       * [Test Topics](#test-topics)
       * [Contribution](#contribution)
@@ -94,7 +94,7 @@ Subscribing to the following streams will give you the corresponding results:
 ### 3. Create your application
 After connecting and choosing the topics to listen on, its time to build your application. Check out the examples below for applications that consume the streams
 
-#### Sample Applications to Get Started Quickly (Coming Soon!)
+#### Sample Applications to Get Started Quickly
 | Application | Language | Description
 | ---- | ---| --- |
 | [Spring Cloud Stream Sample](./samples/SpringCloudStreamSample) | Java + Spring | This microservices shows how to consume events using the Spring Cloud Stream project which abstracts the messaging APIs from the developer and allows them to focus on implementing their business logic.
