@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Solace COVID19 Stream Inspector</title>
+    <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css'>
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.1.0/css/all.css'>
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+    <!-- partial:index.partial.html -->
+    <div id="vue-loading">
+        <i class="fas fa-circle-notch fa-spin fa-3x fa-fw"></i>
+    </div>
+    <section id="app" v-cloak>
+        <div class="steps">
+            <div class="number-box">1</div>
+            <div class="header">
+                Establish a connection with the Solace Broker
+                <span v-show="connected">
+        <i class="session-status fas fa-link is-warning"></i>
+      </span>
+                <span v-show="!connected">
+        <i class="session-status fas fa-unlink is-primary"></i>
+      </span>
+            </div>
+        </div>
+        <div id="tab-session">
+            <form>
+                <div v-if="showAdvancedSettings">
+                    <div class="field">
+                        <label class="label">Broker URL</label>
+                        <div class="control">
+                            <input class="input" type="text" v-model="tabs.session.form.url" />
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Client Username</label>
+                        <div class="control">
+                            <input class="input" type="text" v-model="tabs.session.form.userName" />
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Client Password</label>
+                        <div class="control">
+                            <input class="input" type="password" v-model="tabs.session.form.password" />
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Message VPN</label>
+                        <div class="control">
+                            <input class="input" type="text" v-model="tabs.session.form.vpnName" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class='buttons'>
+                    <input class="button is-primary" type="submit" v-model="tabs.session.form.button.connect" :disabled="session" @click.prevent="connect" />
+                    <input class="button" type="submit" v-model="tabs.session.form.button.disconnect" :disabled="!session" @click.prevent="disconnect" />
+                    <i class="fa fa-spinner fa-fw fa-spin" aria-hidden="true" v-if="sessionRequestPending"></i>
+                    <a class="advanced" @click.prevent="toggleAdvancedSettings()">
+                        <span v-if="showAdvancedSettings">hide</span>
+                        <span v-if="!showAdvancedSettings">show advanced settings</span>
+                    </a>
+                </div>
+            </form>
+
+            <div class="status message is-primary" v-show="tabs.session.status.show">
+                <div class="message-header">
+                    <p>Connect Status</p>
+                </div>
+                <div class="message-body">
+                    {{tabs.session.status.message}}
+                </div>
+            </div>
+        </div>
+
+        <div class="steps">
+            <div class="number-box">2</div>
+            <div class="header">Subscribe to one of the <a href="https://github.com/SolaceLabs/jhu-covid19-stream-processors#2-choose-your-topics">available topics</a></div>
+        </div>
+        <div id="tab-subscribe">
+            <div class="columns">
+                <div class="column">
+                    <form>
+                        <label class="label">Add Topic</label>
+                        <div class="field has-addons">
+                            <div class="control">
+                                <input class="input subscribe" type="text" v-model="tabs.subscribe.form.topic" />
+                            </div>
+                            <div class="control">
+                                <input class="button is-primary" type="submit" :disabled="!(session && tabs.subscribe.form.topic.length)" v-model="tabs.subscribe.form.buttons.subscribe" @click.prevent="subscribe" />
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">Subscribed Topics</label>
+                            <div v-if="subscriptions.length">
+                                <div class="field is-grouped is-grouped-multiline">
+                                    <template v-for="topic in subscriptions">
+                  <div class="control">
+                    <div class="tags has-addons">
+                      <span class="tag is-primary">{{ topic }}</span>
+                      <a class="tag is-delete" 
+                         href='#' 
+                         @click.prevent="unsubscribe(topic)"></a>
+                    </div>
+                  </div>
+                </template>
+                                </div>
+                            </div>
+                            <div v-else>
+                                Add a topic subscription to begin receiving messages.
+                            </div>
+                        </div>
+                    </form>
+                    <transition name="fade" mode="out-in">
+                        <div class="status message is-primary" v-show="tabs.subscribe.status.show">
+                            <div class="message-header">
+                                <p>Subscribe Status</p>
+                            </div>
+                            <div class="message-body">
+                                {{tabs.subscribe.status.message}}
+                            </div>
+                        </div>
+                    </transition>
+                </div>
+
+                <div class="column">
+                    <h2 class="subtitle">
+                        Messages
+                    </h2>
+                    <div class="scroller messages">
+                        <div v-for="(message, index) in messages" class="tags has-addons">
+                            <article class="message is-primary">
+                                <div class="message-header">
+                                    {{ message.date.toLocaleTimeString() }} {{ message.message.getDestination().toString() }}
+                                    <button class="delete" @click.prevent="messageRemove(index)"></button>
+                                </div>
+                                <div v-for="view in messageContent(message)" class="message-body">
+                                    <pre> {{ JSON.parse(view) }}</pre>
+                                </div>
+                                <div class="message-format">
+                                    <div class="control">
+                                        <label class="radio">
+                    <input type="radio" value="binaryAttachment" v-model="message.format"> binary
+                  </label>
+                                        <label class="radio">
+                    <input type="radio" value="sdtText" v-model="message.format"> text
+                  </label>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+    <!-- partial -->
+    <script src='https://cdn.jsdelivr.net/npm/solclientjs'></script>
+    <script src='https://storage.googleapis.com/solace-cloud-dx-static/api-console-bridge/0.0.1/solacecloud-getcurrentservice-0.0.1.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js'></script>
+    <script src="./script.js"></script>
+
+</body>
+
+</html>

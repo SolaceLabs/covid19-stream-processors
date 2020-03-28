@@ -1,0 +1,171 @@
+html {
+  background-color: #FFFFFF;
+  height: 100%;
+}
+
+.title,
+.control,
+.field,
+.tabs,
+.input,
+.textarea,
+.radio {
+  font-family: "Rubik", sans-serif;
+  font-weight: normal;
+}
+
+.banner {
+  margin: -2em -2em 0em -2em;
+  padding: 1em 1em 0em 1em;
+  background-color: #474747;
+}
+
+.title {
+  height: 50px;
+  font-size: 1.8em;
+  color: #FFFFFF;
+}
+
+body {
+  padding: 2em;
+}
+
+.label {
+  color: #595959;
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+.input,
+.textarea {
+  font-size: 20px;
+  font-weight: 300;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+}
+
+label.radio {
+  font-size: 15px;
+  line-height: 25px;
+  color: #7b7c7d;
+}
+
+[v-cloak] {
+  display: none;
+}
+
+#vue-loading {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  height: 150px;
+}
+
+#tab-session, #tab-subscribe {
+  margin-left: 50px;
+}
+
+.steps {
+  display: flex;
+  position: relative;
+  margin: auto 0;
+  height: 40px;
+  margin-bottom: 5px;
+}
+.steps .number-box {
+  width: 30px;
+  height: 30px;
+  color: white;
+  background: #474747;
+  text-align: center;
+  margin: auto 20px auto 0;
+  padding-top: 3px;
+  border-radius: 5px;
+}
+.steps .header {
+  margin: auto 0;
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.65);
+  font-weight: 500;
+  flex: 1;
+}
+
+form .buttons {
+  margin-top: 15px;
+  margin-bottom: 5px !important;
+  position: relative;
+}
+form .buttons .advanced {
+  position: absolute;
+  right: 0;
+  color: #00ad93;
+  bottom: 15px;
+}
+form .buttons .fa-spinner {
+  color: #00ad93;
+}
+form .is-primary {
+  background: #00ad93 !important;
+}
+form input.subscribe {
+  font-size: 16px;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity .5s;
+}
+
+.status {
+  margin-top: 2em;
+}
+
+.tag.is-delete {
+  background-color: #e0e0e0;
+}
+
+.status {
+  margin-top: 2em;
+}
+
+.message-header {
+  background: #00ad93 !important;
+}
+
+.message-body {
+  border-color: #00ad93 !important;
+}
+
+.session-status {
+  padding-left: 3px;
+  font-size: 0.8em;
+}
+.session-status.fa-unlink {
+  color: red;
+}
+.session-status.fa-link {
+  color: green;
+}
+
+.messages {
+  border-top: 1px solid #606060;
+}
+.messages .message {
+  margin-top: 1em;
+  width: 100%;
+}
+.messages .message-format {
+  padding: 1em;
+  background-color: #c0c0c0;
+}
+
+.tabs li.is-active a {
+  border-bottom-color: #4a4a4a;
+  color: #000;
+}
