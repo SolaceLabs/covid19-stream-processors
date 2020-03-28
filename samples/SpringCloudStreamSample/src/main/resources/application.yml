@@ -1,0 +1,33 @@
+spring:
+  cloud:
+    stream:
+      solace:
+        bindings:
+          consumeRegionUpdates-in-0:
+            consumer:
+              # Update topic subscription here! 
+              queueAdditionalSubscriptions: jhu/csse/covid19/cases/region/update/Canada/>
+              # Replace line above with this one to see events come in from test feed
+              # queueAdditionalSubscriptions: jhu/csse/covid19/test/cases/region/update/Canada/>
+          consumeCaseTypeUpdates-in-0:
+            consumer:
+              # Update topic subscription here! 
+              queueAdditionalSubscriptions: jhu/csse/covid19/cases/active/update/Switzerland/>
+              # Replace line above with this one to see events come in from test feed
+              # queueAdditionalSubscriptions: jhu/csse/covid19/test/cases/active/update/Switzerland/>
+      function:
+        definition: consumeRegionUpdates;consumeCaseTypeUpdates
+      bindings:
+        consumeRegionUpdates-in-0:
+          destination: jhu/csse/covid19/test/consumeRegionUpdates
+        consumeCaseTypeUpdates-in-0:
+          destination: jhu/csse/covid19/test/consumeCaseTypeUpdates
+solace:
+  java:
+    host: tcp://mr2r9za6fwi0wf.messaging.solace.cloud:55555  
+    msgVpn: covid-19-streams
+    clientUsername: covid-public-client
+    clientPassword: covid19
+  
+server:
+  port: 8095
