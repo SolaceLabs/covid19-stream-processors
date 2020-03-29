@@ -98,7 +98,7 @@ After connecting and choosing the topics to listen on, its time to build your ap
 | Application | Language | Description
 | ---- | ---| --- |
 | [Spring Cloud Stream Sample](./samples/SpringCloudStreamSample) | Java + Spring | This microservices shows how to consume events using the Spring Cloud Stream project which abstracts the messaging APIs from the developer and allows them to focus on implementing their business logic.
-| [JavaScript Sample](./samples/JavaScriptSample)| JavaScript | This html page allows you to test out multiple topics and view the stream body response. You can check it out on the [CovidStreamViewer](https://www.marcd.dev/COVIDStreamViewer/index.html)
+| [JavaScript Sample](./samples/JavaScriptSample)| JavaScript | This html page allows you to test out multiple topics and view the stream body response. You can check it out on the [CovidStreamViewer](https://www.marcd.dev/COVIDStreamViewer/index.html){:target="_blank"}.
 
 #### COVID19 Stream Processors
 Below are Spring Boot microservices that are being used to create the event current streams that are available for consumption. They are also good examples if you would like to consume the streams and republish them into an event broker. Note that they are not intended to be run with the provided credentials as we are running them as a services
