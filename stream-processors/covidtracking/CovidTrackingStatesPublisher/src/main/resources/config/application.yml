@@ -1,0 +1,20 @@
+spring:
+  cloud:
+    stream:
+      function:
+        definition: retrieveAndPublish
+      bindings:
+        retrieveAndPublish-out-0:
+          destination: com/covidtracking/states/current/get
+solace:
+  java:
+    host: 'tcp://localhost:5555'
+    msgVpn: default
+    clientUsername: default
+    clientPassword: default
+logging:
+  level:
+    root: info
+    org:
+      springframework: info
+

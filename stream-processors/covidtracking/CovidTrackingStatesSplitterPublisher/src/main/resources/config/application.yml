@@ -1,0 +1,22 @@
+spring:
+  cloud:
+    stream:
+      function:
+        definition: splitAndPublish
+      bindings:
+        splitAndPublish-out-0:
+          destination: com/covidtracking/states/current/get/data
+        splitAndPublish-in-0:
+          destination: com/covidtracking/states/current/get/raw
+solace:
+  java:
+    host: 'tcp://localhost:5555'
+    msgVpn: default
+    clientUsername: default
+    clientPassword: default
+logging:
+  level:
+    root: info
+    org:
+      springframework: info
+
