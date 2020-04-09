@@ -7,3 +7,5 @@ target/
 .DS_Store
 .project
 manifest.yml
+manifest.yml.tester
+manifest.yml.prod
