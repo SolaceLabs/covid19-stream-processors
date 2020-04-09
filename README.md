@@ -67,7 +67,7 @@ As of right now, the following is the list of streams available for consumption
 | ---- |----|-------| --- |
 | Raw data for all countries published every ~45 seconds |[Raw Data Schema](./schemas/JHURaw.json) | `jhu/csse/covid19/raw`| |
 | Updated Active/Deaths/Confirmed/Recovered for a region/state in one event | [Regional Update Schema](./schemas/COVID19UpdateSchema.json) | `jhu/csse/covid19/cases/region/update/{attributes.countryRegion}/{attributes.provinceState}`| |
-| Updated Deaths for a region/state | [Update Type Schema](./schemas/JHUUpdateTypeSchema.json) | `jhu/csse/covid19/cases/deaths/update/{attributes.countryRegion}/{attributes.provinceState}`| |
+| Updated Deaths for a region/state | [Update Type Schema](./schemas/JHUUpdateSchema.json) | `jhu/csse/covid19/cases/deaths/update/{attributes.countryRegion}/{attributes.provinceState}`| |
 | Updated Active cases for a region/state | [Update Type Schema](./schemas/JHUUpdateTypeSchema.json) | `jhu/csse/covid19/cases/active/update/{attributes.countryRegion}/{attributes.provinceState}`| |
 | Updated Confirmed cases for a region/state | [Update Type Schema](./schemas/JHUUpdateTypeSchema.json) | `jhu/csse/covid19/cases/confirmed/update/{attributes.countryRegion}/{attributes.provinceState}`| |
 | Updated Recovered cases for a region/state |[Update Type Schema](./schemas/JHUUpdateTypeSchema.json) |  `jhu/csse/covid19/cases/recovered/update/{attributes.countryRegion}/{attributes.provinceState}`| |
@@ -77,7 +77,7 @@ As of right now, the following is the list of streams available for consumption
 |  Description| Schema| Topic| Notes
 | ---- |----|-------| --- |
 | Raw data for all the states in the US published every ~45 seconds | [Raw Data Schema](./schemas/CovidTrackingRaw.json) | `com/covidtracking/states/current/get/raw` |
-| Updated state information | [Raw Data Schema](./schemas/CovidTrackingState.json) |  `com/covidtracking/states/current/update/{state}` |
+| Updated US state information | [Raw Data Schema](./schemas/CovidTrackingState.json) |  `com/covidtracking/states/current/update/{state}` |
 
 Subscribe to one or more of the available topics above to receive the required data. 
 **Note that the streams defined as *update* above only send events when updates actually occur which can be infrequently. For development purposes we are providing [test topics](#test-topics) that get published every few minutes**
@@ -129,16 +129,18 @@ Note: Contact us at covid19-project@solace.com to add more event stream into the
 # Test Topics
 This section includes information about test streams that are available. Since actual updates can occur infrequently, we are providing these test streams strictly for development purposes. Instead of only receiving events when updates occur, these topics, which include `test` as a level, will regularly receive events whether or not an update has actually occurred. Once you have completed development you should remove the `test` level from your topic and you’ll only receive events when actual updates occur.
 
-|  Description| Schema| Topic| Notes
-| ---- |----|-------| --- |
-| Updated Active/Deaths/Confirmed/Recovered for a region/state in one event | [Regional Update Schema](./schemas/COVID19UpdateSchema.json) | `jhu/csse/covid19/test/cases/region/update/{attributes.countryRegion}/{attributes.provinceState}`| |
-| Updated Deaths for a region/state | [Update Type Schema](./schemas/COVID19UpdateTypeSchema.json) | `jhu/csse/covid19/test/cases/deaths/update/{attributes.countryRegion}/{attributes.provinceState}`| |
-| Updated Active cases for a region/state | [Update Type Schema](./schemas/COVID19UpdateTypeSchema.json) | `jhu/csse/covid19/test/cases/active/update/{attributes.countryRegion}/{attributes.provinceState}`| |
-| Updated Confirmed cases for a region/state | [Update Type Schema](./schemas/COVID19UpdateTypeSchema.json) | `jhu/csse/covid19/test/cases/confirmed/update/{attributes.countryRegion}/{attributes.provinceState}`| |
-| Updated Recovered cases for a region/state |[Update Type Schema](./schemas/COVID19UpdateTypeSchema.json) |  `jhu/csse/covid19/test/cases/recovered/update/{attributes.countryRegion}/{attributes.provinceState}`| |
-| Shows the updated percentage of the population affected | [Update Population Schema](./schemas/COVID19UpdatePopulationStats.json) | `jhu/csse/covid19/test/cases/active/population/update/US/{attributes.provinceState}`|Only US for now |
+|  Description| Topic| Notes
+| ---- |----| --- |
+| Updated Active/Deaths/Confirmed/Recovered for a region/state in one event | `jhu/csse/covid19/test/cases/region/update/{attributes.countryRegion}/{attributes.provinceState}`| |
+| Updated Deaths for a region/state | `jhu/csse/covid19/test/cases/deaths/update/{attributes.countryRegion}/{attributes.provinceState}`| |
+| Updated Active cases for a region/state | `jhu/csse/covid19/test/cases/active/update/{attributes.countryRegion}/{attributes.provinceState}`| |
+| Updated Confirmed cases for a region/state | `jhu/csse/covid19/test/cases/confirmed/update/{attributes.countryRegion}/{attributes.provinceState}`| |
+| Updated Recovered cases for a region/state   `jhu/csse/covid19/test/cases/recovered/update/{attributes.countryRegion}/{attributes.provinceState}`| |
+| Shows the updated percentage of the population affected | `jhu/csse/covid19/test/cases/active/population/update/US/{attributes.provinceState}`|Only US for now |
+| Raw data for all the states in the US published every ~45 seconds | `com/covidtracking/test/states/current/get/raw`| |
+| Updated US state information | `com/covidtracking/test/states/current/update/{state}`| |
 
-**Note that the `raw` stream is regularly updated every ~45 seconds**
+**Note that the `raw` streams is regularly updated every ~45 seconds**
 
 # Contribution
 See [Contribution guidelines](./CONTRIBUTING.md) form more details
