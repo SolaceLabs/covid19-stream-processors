@@ -65,13 +65,13 @@ As of right now, the following is the list of streams available for consumption
 #### John Hopkins University
 |  Description| Schema| Topic| Notes
 | ---- |----|-------| --- |
-| Raw data for all countries published every ~45 seconds |[Raw Data Schema](./schemas/RawJHUCSSUCOVID19.json) | `jhu/csse/covid19/raw`| |
+| Raw data for all countries published every ~45 seconds |[Raw Data Schema](./schemas/JHURaw.json) | `jhu/csse/covid19/raw`| |
 | Updated Active/Deaths/Confirmed/Recovered for a region/state in one event | [Regional Update Schema](./schemas/COVID19UpdateSchema.json) | `jhu/csse/covid19/cases/region/update/{attributes.countryRegion}/{attributes.provinceState}`| |
-| Updated Deaths for a region/state | [Update Type Schema](./schemas/COVID19UpdateTypeSchema.json) | `jhu/csse/covid19/cases/deaths/update/{attributes.countryRegion}/{attributes.provinceState}`| |
-| Updated Active cases for a region/state | [Update Type Schema](./schemas/COVID19UpdateTypeSchema.json) | `jhu/csse/covid19/cases/active/update/{attributes.countryRegion}/{attributes.provinceState}`| |
-| Updated Confirmed cases for a region/state | [Update Type Schema](./schemas/COVID19UpdateTypeSchema.json) | `jhu/csse/covid19/cases/confirmed/update/{attributes.countryRegion}/{attributes.provinceState}`| |
-| Updated Recovered cases for a region/state |[Update Type Schema](./schemas/COVID19UpdateTypeSchema.json) |  `jhu/csse/covid19/cases/recovered/update/{attributes.countryRegion}/{attributes.provinceState}`| |
-| Shows the updated percentage of the population affected | [Update Population Schema](./schemas/COVID19UpdatePopulationStats.json) | `jhu/csse/covid19/cases/active/population/update/US/{attributes.provinceState}`|Only US for now |
+| Updated Deaths for a region/state | [Update Type Schema](./schemas/JHUUpdateTypeSchema.json) | `jhu/csse/covid19/cases/deaths/update/{attributes.countryRegion}/{attributes.provinceState}`| |
+| Updated Active cases for a region/state | [Update Type Schema](./schemas/JHUUpdateTypeSchema.json) | `jhu/csse/covid19/cases/active/update/{attributes.countryRegion}/{attributes.provinceState}`| |
+| Updated Confirmed cases for a region/state | [Update Type Schema](./schemas/JHUUpdateTypeSchema.json) | `jhu/csse/covid19/cases/confirmed/update/{attributes.countryRegion}/{attributes.provinceState}`| |
+| Updated Recovered cases for a region/state |[Update Type Schema](./schemas/JHUUpdateTypeSchema.json) |  `jhu/csse/covid19/cases/recovered/update/{attributes.countryRegion}/{attributes.provinceState}`| |
+| Shows the updated percentage of the population affected | [Update Population Schema](./schemas/JHUUpdatePopulationSchema.json) | `jhu/csse/covid19/cases/active/population/update/US/{attributes.provinceState}`|Only US for now |
 
 #### The Covid Tracking Project
 |  Description| Schema| Topic| Notes
