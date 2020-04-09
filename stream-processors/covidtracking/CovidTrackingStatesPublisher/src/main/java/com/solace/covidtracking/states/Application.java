@@ -48,7 +48,8 @@ public class Application {
             data = restTemplate.getForObject("https://covidtracking.com/api/states", String.class);
 			try{
 				parsedData = objectMapper.readValue(data, CovidTracking_StatesCurrentData.class);
-               // logger.info(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(parsedData));
+                logger.debug(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(parsedData));
+                logger.info("Received & Parsed REST response");
                 result = objectMapper.writeValueAsString(parsedData);
 			} catch (JsonProcessingException e) {
 				logger.error("There was a problem parsing the response data: " + data);
