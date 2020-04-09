@@ -19,6 +19,7 @@
     <properties>
         <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
         <solace-spring-cloud-bom.version>1.0.0</solace-spring-cloud-bom.version>
+        <solace-spring-boot-bom.version>1.0.0</solace-spring-boot-bom.version>
     </properties>
 
     <dependencyManagement>
@@ -44,6 +45,14 @@
         <dependency>
             <groupId>com.solace.spring.cloud</groupId>
             <artifactId>spring-cloud-starter-stream-solace</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.solace.spring.boot</groupId>
+            <artifactId>solace-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
     </dependencies>
 
