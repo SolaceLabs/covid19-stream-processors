@@ -36,12 +36,11 @@ public class Application {
     }
 
     @Bean
-    public Supplier<CovidTracking_StatesCurrentData> retrieveAndPublish() {
+    public Supplier<String> retrieveAndPublish() {
         // Add business logic here.
         return () -> {
             RestTemplate restTemplate = new RestTemplateBuilder().build();
             CovidTracking_StatesCurrentData parsedData = null;
-            boolean error = true;
             String data = null;
             String result = null;
             logger.info("Making REST request to CovidData");
@@ -56,7 +55,7 @@ public class Application {
 				logger.error(e.getMessage());
 			}
 
-			return parsedData;
+			return result;
 
         };
     }
