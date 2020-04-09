@@ -1,0 +1,368 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "type": "array",
+    "title": "The Root Schema",
+    "description": "The root schema comprises the entire JSON document.",
+    "items": {
+      "type": "object",
+      "title": "The Items Schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": {},
+      "examples": [
+        {
+          "total": 5022,
+          "onVentilatorCumulative": null,
+          "recovered": null,
+          "score": 4,
+          "totalTestResults": 5022,
+          "hospitalizedCumulative": 9,
+          "positive": 143,
+          "death": 3,
+          "negativeScore": 1,
+          "lastUpdateEt": "4/01 19:00",
+          "dateChecked": "2020-04-02T15:06:00Z",
+          "onVentilatorCurrently": null,
+          "dateModified": "2020-04-01T23:00:00Z",
+          "negative": 4879,
+          "checkTimeEt": "4/02 11:06",
+          "hospitalized": 9,
+          "inIcuCurrently": null,
+          "hash": "728b96f4626db4ed742593dc6c2a6f301c21a1eb",
+          "commercialScore": 1,
+          "fips": "02",
+          "positiveScore": 1,
+          "grade": "A",
+          "hospitalizedCurrently": null,
+          "negativeRegularScore": 1,
+          "notes": "Please stop using the \"total\" field. Use \"totalTestResults\" instead.",
+          "inIcuCumulative": null,
+          "state": "AK",
+          "pending": null
+        },
+        {
+          "onVentilatorCumulative": null,
+          "total": 8619,
+          "recovered": null,
+          "score": 3,
+          "totalTestResults": 8619,
+          "hospitalizedCumulative": null,
+          "positive": 1116,
+          "death": 32,
+          "negativeScore": 1,
+          "lastUpdateEt": "4/02 00:00",
+          "dateChecked": "2020-04-02T14:54:00Z",
+          "onVentilatorCurrently": null,
+          "negative": 7503,
+          "dateModified": "2020-04-02T04:00:00Z",
+          "checkTimeEt": "4/02 10:54",
+          "hospitalized": null,
+          "hash": "065acc38fa108bc0412e1b70ff6ea38b6e737e26",
+          "inIcuCurrently": null,
+          "commercialScore": 1,
+          "fips": "01",
+          "positiveScore": 1,
+          "grade": "B",
+          "hospitalizedCurrently": null,
+          "negativeRegularScore": 0,
+          "notes": "Please stop using the \"total\" field. Use \"totalTestResults\" instead.",
+          "inIcuCumulative": null,
+          "state": "AL",
+          "pending": null
+        }
+      ],
+      "required": [
+        "state",
+        "positive",
+        "posNeg",
+        "positiveScore",
+        "negativeScore",
+        "negativeRegularScore",
+        "commercialScore",
+        "grade",
+        "score",
+        "negative",
+        "pending",
+        "hospitalizedCurrently",
+        "hospitalizedCumulative",
+        "inIcuCurrently",
+        "inIcuCumulative",
+        "onVentilatorCurrently",
+        "onVentilatorCumulative",
+        "recovered",
+        "lastUpdateEt",
+        "checkTimeEt",
+        "death",
+        "hospitalized",
+        "total",
+        "totalTestResults",
+        "fips",
+        "dateModified",
+        "dateChecked",
+        "notes",
+        "hash"
+      ],
+      "properties": {
+        "state": {
+          "type": "string",
+          "title": "The State Schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "AK"
+          ]
+        },
+        "positive": {
+          "type": "integer",
+          "title": "The Positive Schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": 0,
+          "examples": [
+            143
+          ]
+        },
+        "posNeg": {
+          "type": "integer",
+          "title": "The posNeg Schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": 0,
+          "examples": [
+            143
+          ]
+        },
+        "positiveScore": {
+          "type": "integer",
+          "title": "The Positivescore Schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": 0,
+          "examples": [
+            1
+          ]
+        },
+        "negativeScore": {
+          "type": "integer",
+          "title": "The Negativescore Schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": 0,
+          "examples": [
+            1
+          ]
+        },
+        "negativeRegularScore": {
+          "type": "integer",
+          "title": "The Negativeregularscore Schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": 0,
+          "examples": [
+            1
+          ]
+        },
+        "commercialScore": {
+          "type": "integer",
+          "title": "The Commercialscore Schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": 0,
+          "examples": [
+            1
+          ]
+        },
+        "grade": {
+          "type": "string",
+          "title": "The Grade Schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "A"
+          ]
+        },
+        "score": {
+          "type": "integer",
+          "title": "The Score Schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": 0,
+          "examples": [
+            4
+          ]
+        },
+        "negative": {
+          "type": "integer",
+          "title": "The Negative Schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": 0,
+          "examples": [
+            4879
+          ]
+        },
+        "pending": {
+          "title": "The Pending Schema",
+          "type": "integer",
+          "description": "An explanation about the purpose of this instance.",
+          "default": null,
+          "examples": [
+            null
+          ]
+        },
+        "hospitalizedCurrently": {
+          "title": "The Hospitalizedcurrently Schema",
+          "type": "integer",
+          "description": "An explanation about the purpose of this instance.",
+          "default": null,
+          "examples": [
+            null
+          ]
+        },
+        "hospitalizedCumulative": {
+          "type": "integer",
+          "title": "The Hospitalizedcumulative Schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": 0,
+          "examples": [
+            9
+          ]
+        },
+        "inIcuCurrently": {
+          "title": "The Inicucurrently Schema",
+          "type": "integer",
+          "description": "An explanation about the purpose of this instance.",
+          "default": null,
+          "examples": [
+            null
+          ]
+        },
+        "inIcuCumulative": {
+          "title": "The Inicucumulative Schema",
+          "type": "integer",
+          "description": "An explanation about the purpose of this instance.",
+          "default": null,
+          "examples": [
+            null
+          ]
+        },
+        "onVentilatorCurrently": {
+          "title": "The Onventilatorcurrently Schema",
+          "type": "integer",
+          "description": "An explanation about the purpose of this instance.",
+          "default": null,
+          "examples": [
+            null
+          ]
+        },
+        "onVentilatorCumulative": {
+          "title": "The Onventilatorcumulative Schema",
+          "type": "integer",
+          "description": "An explanation about the purpose of this instance.",
+          "default": null,
+          "examples": [
+            null
+          ]
+        },
+        "recovered": {
+          "title": "The Recovered Schema",
+          "type": "integer",
+          "description": "An explanation about the purpose of this instance.",
+          "default": null,
+          "examples": [
+            null
+          ]
+        },
+        "lastUpdateEt": {
+          "type": "string",
+          "title": "The Lastupdateet Schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "4/01 19:00"
+          ]
+        },
+        "checkTimeEt": {
+          "type": "string",
+          "title": "The Checktimeet Schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "4/02 11:06"
+          ]
+        },
+        "death": {
+          "type": "integer",
+          "title": "The Death Schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": 0,
+          "examples": [
+            3
+          ]
+        },
+        "hospitalized": {
+          "type": "integer",
+          "title": "The Hospitalized Schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": 0,
+          "examples": [
+            9
+          ]
+        },
+        "total": {
+          "type": "integer",
+          "title": "The Total Schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": 0,
+          "examples": [
+            5022
+          ]
+        },
+        "totalTestResults": {
+          "type": "integer",
+          "title": "The Totaltestresults Schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": 0,
+          "examples": [
+            5022
+          ]
+        },
+        "fips": {
+          "type": "string",
+          "title": "The Fips Schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "02"
+          ]
+        },
+        "dateModified": {
+          "type": "string",
+          "title": "The Datemodified Schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "2020-04-01T23:00:00Z"
+          ]
+        },
+        "dateChecked": {
+          "type": "string",
+          "title": "The Datechecked Schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "2020-04-02T15:06:00Z"
+          ]
+        },
+        "notes": {
+          "type": "string",
+          "title": "The Notes Schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "Please stop using the \"total\" field. Use \"totalTestResults\" instead."
+          ]
+        },
+        "hash": {
+          "type": "string",
+          "title": "The Hash Schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "728b96f4626db4ed742593dc6c2a6f301c21a1eb"
+          ]
+        }
+      }
+    }
+  }

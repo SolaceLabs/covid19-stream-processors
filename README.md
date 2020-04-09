@@ -76,8 +76,8 @@ As of right now, the following is the list of streams available for consumption
 #### The Covid Tracking Project
 |  Description| Schema| Topic| Notes
 | ---- |----|-------| --- |
-| Raw data for all the states in the US published every ~45 seconds | [Raw Data Schema](./schemas/RawCovidTracking.json) | `com/covidtracking/states/current/get/raw` |
-| Updated state information | [Raw Data Schema](./schemas/StateCovidTracking.json) |  `com/covidtracking/states/current/update/{state}` |
+| Raw data for all the states in the US published every ~45 seconds | [Raw Data Schema](./schemas/CovidTrackingRaw.json) | `com/covidtracking/states/current/get/raw` |
+| Updated state information | [Raw Data Schema](./schemas/CovidTrackingState.json) |  `com/covidtracking/states/current/update/{state}` |
 
 Subscribe to one or more of the available topics above to receive the required data. 
 **Note that the streams defined as *update* above only send events when updates actually occur which can be infrequently. For development purposes we are providing [test topics](#test-topics) that get published every few minutes**
