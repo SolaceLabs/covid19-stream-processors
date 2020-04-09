@@ -19,7 +19,7 @@ Table of Contents
 
 
 # Overview
-A team at Johns Hopkins University has developed this [interactive web-based dashboard](https://www.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6) to provide researchers, public health authorities, and the general public with a user-friendly tool to track the COVID-19 pandemic as it unfolds. Their team has also been nice enough to periodically (usually once or twice a day) upload the data to this [Github Repo](https://github.com/CSSEGISandData/COVID-19) which has been very popular in the developer community, but has led to developers wanting to receive updates in a more efficient manner. To further their teams’ efforts, help the community, and to “do our part” we at Solace have created an application which polls the feature service, looks for differences in the data and publish updates into an Event Broker we are making available for public use. This allows anyone to consume data updates in near real-time and decrease the load on JHU’s own servers. The data is being published into the event brokers using dynamic topics which allows subscribers to pick, choose and filter on the specific data that they want to consume, e.g.,  a developer could choose to only get updated when an update it available for a specific Country & Province/State that they are interested in. This repository shares the information needed for anyone to consume these event streams :)
+A team at Johns Hopkins University has developed this [interactive web-based dashboard](https://www.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6) to provide researchers, public health authorities, and the general public with a user-friendly tool to track the COVID-19 pandemic as it unfolds. Their team has also been nice enough to periodically (usually once or twice a day) upload the data to this [Github Repo](https://github.com/CSSEGISandData/COVID-19) which has been very popular in the developer community; but has led to developers wanting to receive updates in a more efficient manner. To further their teams’ efforts, help the community, and to “do our part”, we at Solace have created an application that polls the feature service, looks for differences in the data, and publishes updates into an Event Broker we are making available for public use. This allows anyone to consume data updates in near real-time. The data is being published into the event brokers using dynamic topics which allows subscribers to pick, choose and filter on the specific data that they want to consume; e.g.,  a developer could choose to only get updated when an update it available for a specific Country & Province/State that they are interested in. This repository shares the information needed for anyone to consume these event streams :)
 
 
 # COVID-19 Stream Processor
@@ -45,6 +45,7 @@ Connect to the PubSub+ broker using one of the connection end points below. For 
 |:---------- |:--------
 |`SMF Host`|`tcp://mr2r9za6fwi0wf.messaging.solace.cloud:55555`|
 |`Web Messaging Host`|`ws://mr2r9za6fwi0wf.messaging.solace.cloud:80`|
+|`Secured Web Messaging Host`|`wss://mr2r9za6fwi0wf.messaging.solace.cloud:443`|
 |`MQTT Host`|`tcp://mr2r9za6fwi0wf.messaging.solace.cloud:1883`|
 |`Secured MQTT Host`|`ssl://mr2r9za6fwi0wf.messaging.solace.cloud:8883`|
 |`WebSocket MQTT Host`|`ws://mr2r9za6fwi0wf.messaging.solace.cloud:8000`|
@@ -92,16 +93,17 @@ Subscribing to the following streams will give you the corresponding results:
 
 
 ### 3. Create your application
-After connecting and choosing the topics to listen on, its time to build your application. Check out the examples below for applications that consume the streams
+After connecting and choosing the topics to listen on, it's time to build your application. Check out the examples below for applications that consume the streams.
 
 #### Sample Applications to Get Started Quickly
 | Application | Language | Description
 | ---- | ---| --- |
-| [Spring Cloud Stream Sample](./samples/SpringCloudStreamSample) | Java + Spring | This microservices shows how to consume events using the Spring Cloud Stream project which abstracts the messaging APIs from the developer and allows them to focus on implementing their business logic.
-| [JavaScript Sample](./samples/JavaScriptSample)| JavaScript | This html page allows you to test out multiple topics and view the stream body response
+| [Spring Cloud Stream Sample](./samples/SpringCloudStreamSample) | Java + Spring | This microservice shows how to consume events using the Spring Cloud Stream project, which abstracts the messaging APIs from the developer and allows them to focus on implementing their business logic.
+| [JavaScript Sample](./samples/JavaScriptSample)| JavaScript | This html page allows you to test out multiple topics and view the stream body response. You can check it out on the [CovidStreamViewer](https://www.marcd.dev/COVIDStreamViewer/index.html)
+|[MQTT JS Sample](./samples/mqtt)|JavaScript| This html page demonstrates connecting to the Solace PubSub+ COVID19 Broker using MQTT JS Library. You can check it out on the [MQTT CovidStreamViewer](https://www.marcd.dev/COVIDStreamViewer/mqtt/mqttListener.html)
 
 #### COVID19 Stream Processors
-Below are Spring Boot microservices that are being used to create the event current streams that are available for consumption. They are also good examples if you would like to consume the streams and republish them into an event broker. Note that they are not intended to be run with the provided credentials as we are running them as a services
+Below are Spring Boot microservices used to create the event current streams available for consumption. They are also good examples if you would like to consume the streams and republish them into an event broker. Note that they are not intended to be run with the provided credentials as we are running them as a services.
 
 | Application        | Version           | Integration  | Description |
 | ------------- |:-------------:| :-----| :-----|
@@ -111,10 +113,10 @@ Below are Spring Boot microservices that are being used to create the event curr
 
 ![EventPortal](./img/EventPortal.png)
 
-Note: Contact us at covid19-project@solace.com to add more event stream into the current broker
+Note: Contact us at covid19-project@solace.com to add more event stream into the current broker.
 
 ## Test Topics
-This section includes information about test streams that are available. Since actual updates can occur infrequently we are providing these test streams strictly for development purposes. Instead of only receiving events when updates occur, these topics, which include `test` as a level, will regularly receive events whether or not an update has actually occurred. Once you have completed development you should remove the `test` level from your topic and you’ll only receive events when actual updates occur.
+This section includes information about test streams that are available. Since actual updates can occur infrequently, we are providing these test streams strictly for development purposes. Instead of only receiving events when updates occur, these topics, which include `test` as a level, will regularly receive events whether or not an update has actually occurred. Once you have completed development you should remove the `test` level from your topic and you’ll only receive events when actual updates occur.
 
 |  Description| Schema| Topic| Notes
 | ---- |----|-------| --- |
@@ -125,7 +127,7 @@ This section includes information about test streams that are available. Since a
 | Updated Recovered cases for a region/state |[Update Type Schema](./schemas/COVID19UpdateTypeSchema.json) |  `jhu/csse/covid19/test/cases/recovered/update/{attributes.countryRegion}/{attributes.provinceState}`| |
 | Shows the updated percentage of the population affected | [Update Population Schema](./schemas/COVID19UpdatePopulationStats.json) | `jhu/csse/covid19/test/cases/active/population/update/US/{attributes.provinceState}`|Only US for now |
 
-**Note that the `raw` stream is regulary updated every ~45 seconds**
+**Note that the `raw` stream is regularly updated every ~45 seconds**
 
 ## Contribution
 See [Contribution guidelines](./CONTRIBUTING.md) form more details

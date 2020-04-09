@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>COVID-19 Topic Tester</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <h2>COVID-19 Stream viewer</h2>
+    <h3 id="msgs"></h3>
+
+    <div style="display: none;" id="div_tl">
+        <button id="pause" class="button" onClick="pause();">Pause</button>
+        <br><br>
+        <button class="button" onclick="topicSubscribe()">Subscribe</button>
+        <input type="text" id="sub-topic" value="jhu/csse/covid19/cases/region/#">
+        <br><br>
+        <button class="button" onclick="topicUnsubscribe()">Unsubscribe</button>
+        <input type="text" id="unsub-topic">
+        <br><br>
+    </div>
+
+    <script src="mqtt.js"></script>
+</body>
+
+</html>
