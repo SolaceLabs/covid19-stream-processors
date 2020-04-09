@@ -23,7 +23,7 @@ Table of Contents
 This repo provides streams information and example applications on how to consume COVID19 related topics aggregated from different data sources. Below is a list of the different data sources used to feed the published streams.
 
 ## The Covid Tracking Project
-A team for the [The Atlantic](https://www.theatlantic.com/) launched [The Covid Tracking Project](https://covidtracking.com/) to collect and publish testing data available for US states and territories.
+A team from the [The Atlantic](https://www.theatlantic.com/) launched [The Covid Tracking Project](https://covidtracking.com/) to collect and publish testing data available for US states and territories.
 
 ## John Hopkins University
 A team at [Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE)](https://systems.jhu.edu/) has developed this [interactive web-based dashboard](https://www.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6) to provide researchers, public health authorities, and the general public with a user-friendly tool to track the COVID-19 pandemic as it unfolds. Their team has also been nice enough to periodically (usually once or twice a day) upload the data to this [Github Repo](https://github.com/CSSEGISandData/COVID-19) which has been very popular in the developer community; but has led to developers wanting to receive updates in a more efficient manner. To further their teams’ efforts, help the community, and to “do our part”, we at Solace have created an application that polls the feature service, looks for differences in the data, and publishes updates into an Event Broker we are making available for public use. This allows anyone to consume data updates in near real-time. The data is being published into the event brokers using dynamic topics which allows subscribers to pick, choose and filter on the specific data that they want to consume; e.g.,  a developer could choose to only get updated when an update it available for a specific Country & Province/State that they are interested in. 
@@ -59,10 +59,10 @@ Note: if you want to receive notifications via a REST end point that supports `P
 
 ## 2. Choose your Topics
 
-
 ### Streams are available on these topics
 As of right now, the following is the list of streams available for consumption 
 
+#### John Hopkins University
 |  Description| Schema| Topic| Notes
 | ---- |----|-------| --- |
 | Raw data for all countries published every ~45 seconds |[Raw Data Schema](./schemas/RawJHUCSSUCOVID19.json) | `jhu/csse/covid19/raw`| |
@@ -72,6 +72,12 @@ As of right now, the following is the list of streams available for consumption
 | Updated Confirmed cases for a region/state | [Update Type Schema](./schemas/COVID19UpdateTypeSchema.json) | `jhu/csse/covid19/cases/confirmed/update/{attributes.countryRegion}/{attributes.provinceState}`| |
 | Updated Recovered cases for a region/state |[Update Type Schema](./schemas/COVID19UpdateTypeSchema.json) |  `jhu/csse/covid19/cases/recovered/update/{attributes.countryRegion}/{attributes.provinceState}`| |
 | Shows the updated percentage of the population affected | [Update Population Schema](./schemas/COVID19UpdatePopulationStats.json) | `jhu/csse/covid19/cases/active/population/update/US/{attributes.provinceState}`|Only US for now |
+
+#### The Covid Tracking Project
+|  Description| Schema| Topic| Notes
+| ---- |----|-------| --- |
+| Raw data for all the states in the US published every ~45 seconds | [Raw Data Schema](./schemas/RawCovidTracking.json) | `com/covidtracking/states/current/get/raw` |
+| Updated state information | [Raw Data Schema](./schemas/StateCovidTracking.json) |  `com/covidtracking/states/current/update/{state}` |
 
 Subscribe to one or more of the available topics above to receive the required data. 
 **Note that the streams defined as *update* above only send events when updates actually occur which can be infrequently. For development purposes we are providing [test topics](#test-topics) that get published every few minutes**
@@ -110,9 +116,11 @@ Below are Spring Boot microservices used to create the event current streams ava
 
 | Application        | Version           | Integration  | Description |
 | ------------- |:-------------:| :-----| :-----|
-| [COVID19CaseSplitter](./stream-processors/COVID19CasesSplitter)      | 0.1 | Spring | This application consumes RAW JHU COVID19 data, and publishes smaller updates |
-| [COVID19RegionalSplitter](./stream-processors/COVID19RegionalSplitter) | 0.1      |    Spring | This application consumes RAW JHU COVID19 data, splits it into regional updates and publishes smaller regional updates
-| [COVID19PopulationProvider](./stream-processors/COVID19PopulationProvider)     | 0.1      |   Spring | This application publishes the percentage of population affected in the areas
+| [COVID19CaseSplitter](./stream-processors/jhu/COVID19CasesSplitter)      | 0.1 | Spring | This application consumes RAW JHU COVID19 data, and publishes smaller updates |
+| [COVID19RegionalSplitter](./stream-processors/jhu/COVID19RegionalSplitter) | 0.1      |    Spring | This application consumes RAW JHU COVID19 data, splits it into regional updates and publishes smaller regional updates
+| [COVID19PopulationProvider](./stream-processors/jhu/COVID19PopulationProvider)     | 0.1      |   Spring | This application publishes the percentage of population affected in the areas
+| [CovidTrackingStatesPublisher](./stream-processors/covidtracking.com/CovidTrackingStatesPublisher) | 0.1 | Spring | This application consumes RAW CovidTracking.com data, and publishes smaller updates
+| [CovidTrackingStatesSplitterPublisher](./stream-processors/covidtracking.com/CovidTrackingStatesSplitterPublisher) | 0.1 | Spring | This application consumes RAW CovidTracking.com data, splits it into states and publishes smaller updates
 
 ![EventPortal](./img/EventPortal.png)
 
