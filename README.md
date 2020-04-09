@@ -135,7 +135,7 @@ This section includes information about test streams that are available. Since a
 | Updated Deaths for a region/state | `jhu/csse/covid19/test/cases/deaths/update/{attributes.countryRegion}/{attributes.provinceState}`| |
 | Updated Active cases for a region/state | `jhu/csse/covid19/test/cases/active/update/{attributes.countryRegion}/{attributes.provinceState}`| |
 | Updated Confirmed cases for a region/state | `jhu/csse/covid19/test/cases/confirmed/update/{attributes.countryRegion}/{attributes.provinceState}`| |
-| Updated Recovered cases for a region/state   `jhu/csse/covid19/test/cases/recovered/update/{attributes.countryRegion}/{attributes.provinceState}`| |
+| Updated Recovered cases for a region/state| `jhu/csse/covid19/test/cases/recovered/update/{attributes.countryRegion}/{attributes.provinceState}`| |
 | Shows the updated percentage of the population affected | `jhu/csse/covid19/test/cases/active/population/update/US/{attributes.provinceState}`|Only US for now |
 | Raw data for all the states in the US published every ~45 seconds | `com/covidtracking/test/states/current/get/raw`| |
 | Updated US state information | `com/covidtracking/test/states/current/update/{state}`| |
