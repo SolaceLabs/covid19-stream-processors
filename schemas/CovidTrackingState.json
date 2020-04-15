@@ -1,0 +1,312 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "http://example.com/example.json",
+    "type": "object",
+    "title": "The Root Schema",
+    "description": "The root schema comprises the entire JSON document.",
+    "required": [
+      "state",
+      "positive",
+      "positiveScore",
+      "negativeScore",
+      "negativeRegularScore",
+      "commercialScore",
+      "grade",
+      "score",
+      "negative",
+      "pending",
+      "hospitalizedCurrently",
+      "hospitalizedCumulative",
+      "inIcuCurrently",
+      "inIcuCumulative",
+      "onVentilatorCurrently",
+      "onVentilatorCumulative",
+      "recovered",
+      "lastUpdateEt",
+      "checkTimeEt",
+      "death",
+      "hospitalized",
+      "total",
+      "totalTestResults",
+      "fips",
+      "dateModified",
+      "dateChecked",
+      "notes",
+      "hash"
+    ],
+    "properties": {
+      "state": {
+        "$id": "#/properties/state",
+        "type": "string",
+        "title": "The State Schema",
+        "description": "An explanation about the purpose of this instance.",
+        "default": "",
+        "examples": [
+          "AK"
+        ]
+      },
+      "positive": {
+        "$id": "#/properties/positive",
+        "type": "integer",
+        "title": "The Positive Schema",
+        "description": "An explanation about the purpose of this instance.",
+        "default": 0,
+        "examples": [
+          143
+        ]
+      },
+      "positiveScore": {
+        "$id": "#/properties/positiveScore",
+        "type": "integer",
+        "title": "The Positivescore Schema",
+        "description": "An explanation about the purpose of this instance.",
+        "default": 0,
+        "examples": [
+          1
+        ]
+      },
+      "negativeScore": {
+        "$id": "#/properties/negativeScore",
+        "type": "integer",
+        "title": "The Negativescore Schema",
+        "description": "An explanation about the purpose of this instance.",
+        "default": 0,
+        "examples": [
+          1
+        ]
+      },
+      "negativeRegularScore": {
+        "$id": "#/properties/negativeRegularScore",
+        "type": "integer",
+        "title": "The Negativeregularscore Schema",
+        "description": "An explanation about the purpose of this instance.",
+        "default": 0,
+        "examples": [
+          1
+        ]
+      },
+      "commercialScore": {
+        "$id": "#/properties/commercialScore",
+        "type": "integer",
+        "title": "The Commercialscore Schema",
+        "description": "An explanation about the purpose of this instance.",
+        "default": 0,
+        "examples": [
+          1
+        ]
+      },
+      "grade": {
+        "$id": "#/properties/grade",
+        "type": "string",
+        "title": "The Grade Schema",
+        "description": "An explanation about the purpose of this instance.",
+        "default": "",
+        "examples": [
+          "A"
+        ]
+      },
+      "score": {
+        "$id": "#/properties/score",
+        "type": "integer",
+        "title": "The Score Schema",
+        "description": "An explanation about the purpose of this instance.",
+        "default": 0,
+        "examples": [
+          4
+        ]
+      },
+      "negative": {
+        "$id": "#/properties/negative",
+        "type": "integer",
+        "title": "The Negative Schema",
+        "description": "An explanation about the purpose of this instance.",
+        "default": 0,
+        "examples": [
+          4879
+        ]
+      },
+      "pending": {
+        "$id": "#/properties/pending",
+        "title": "The Pending Schema",
+        "description": "An explanation about the purpose of this instance.",
+        "default": null,
+        "examples": [
+          null
+        ]
+      },
+      "hospitalizedCurrently": {
+        "$id": "#/properties/hospitalizedCurrently",
+        "title": "The Hospitalizedcurrently Schema",
+        "description": "An explanation about the purpose of this instance.",
+        "default": null,
+        "examples": [
+          null
+        ]
+      },
+      "hospitalizedCumulative": {
+        "$id": "#/properties/hospitalizedCumulative",
+        "type": "integer",
+        "title": "The Hospitalizedcumulative Schema",
+        "description": "An explanation about the purpose of this instance.",
+        "default": 0,
+        "examples": [
+          9
+        ]
+      },
+      "inIcuCurrently": {
+        "$id": "#/properties/inIcuCurrently",
+        "title": "The Inicucurrently Schema",
+        "description": "An explanation about the purpose of this instance.",
+        "default": null,
+        "examples": [
+          null
+        ]
+      },
+      "inIcuCumulative": {
+        "$id": "#/properties/inIcuCumulative",
+        "title": "The Inicucumulative Schema",
+        "description": "An explanation about the purpose of this instance.",
+        "default": null,
+        "examples": [
+          null
+        ]
+      },
+      "onVentilatorCurrently": {
+        "$id": "#/properties/onVentilatorCurrently",
+        "title": "The Onventilatorcurrently Schema",
+        "description": "An explanation about the purpose of this instance.",
+        "default": null,
+        "examples": [
+          null
+        ]
+      },
+      "onVentilatorCumulative": {
+        "$id": "#/properties/onVentilatorCumulative",
+        "title": "The Onventilatorcumulative Schema",
+        "description": "An explanation about the purpose of this instance.",
+        "default": null,
+        "examples": [
+          null
+        ]
+      },
+      "recovered": {
+        "$id": "#/properties/recovered",
+        "title": "The Recovered Schema",
+        "description": "An explanation about the purpose of this instance.",
+        "default": null,
+        "examples": [
+          null
+        ]
+      },
+      "lastUpdateEt": {
+        "$id": "#/properties/lastUpdateEt",
+        "type": "string",
+        "title": "The Lastupdateet Schema",
+        "description": "An explanation about the purpose of this instance.",
+        "default": "",
+        "examples": [
+          "4/01 19:00"
+        ]
+      },
+      "checkTimeEt": {
+        "$id": "#/properties/checkTimeEt",
+        "type": "string",
+        "title": "The Checktimeet Schema",
+        "description": "An explanation about the purpose of this instance.",
+        "default": "",
+        "examples": [
+          "4/02 11:06"
+        ]
+      },
+      "death": {
+        "$id": "#/properties/death",
+        "type": "integer",
+        "title": "The Death Schema",
+        "description": "An explanation about the purpose of this instance.",
+        "default": 0,
+        "examples": [
+          3
+        ]
+      },
+      "hospitalized": {
+        "$id": "#/properties/hospitalized",
+        "type": "integer",
+        "title": "The Hospitalized Schema",
+        "description": "An explanation about the purpose of this instance.",
+        "default": 0,
+        "examples": [
+          9
+        ]
+      },
+      "total": {
+        "$id": "#/properties/total",
+        "type": "integer",
+        "title": "The Total Schema",
+        "description": "An explanation about the purpose of this instance.",
+        "default": 0,
+        "examples": [
+          5022
+        ]
+      },
+      "totalTestResults": {
+        "$id": "#/properties/totalTestResults",
+        "type": "integer",
+        "title": "The Totaltestresults Schema",
+        "description": "An explanation about the purpose of this instance.",
+        "default": 0,
+        "examples": [
+          5022
+        ]
+      },
+      "fips": {
+        "$id": "#/properties/fips",
+        "type": "string",
+        "title": "The Fips Schema",
+        "description": "An explanation about the purpose of this instance.",
+        "default": "",
+        "examples": [
+          "02"
+        ]
+      },
+      "dateModified": {
+        "$id": "#/properties/dateModified",
+        "type": "string",
+        "title": "The Datemodified Schema",
+        "description": "An explanation about the purpose of this instance.",
+        "default": "",
+        "examples": [
+          "2020-04-01T23:00:00Z"
+        ]
+      },
+      "dateChecked": {
+        "$id": "#/properties/dateChecked",
+        "type": "string",
+        "title": "The Datechecked Schema",
+        "description": "An explanation about the purpose of this instance.",
+        "default": "",
+        "examples": [
+          "2020-04-02T15:06:00Z"
+        ]
+      },
+      "notes": {
+        "$id": "#/properties/notes",
+        "type": "string",
+        "title": "The Notes Schema",
+        "description": "An explanation about the purpose of this instance.",
+        "default": "",
+        "examples": [
+          "Please stop using the \"total\" field. Use \"totalTestResults\" instead."
+        ]
+      },
+      "hash": {
+        "$id": "#/properties/hash",
+        "type": "string",
+        "title": "The Hash Schema",
+        "description": "An explanation about the purpose of this instance.",
+        "default": "",
+        "examples": [
+          "728b96f4626db4ed742593dc6c2a6f301c21a1eb"
+        ]
+      }
+    }
+  }

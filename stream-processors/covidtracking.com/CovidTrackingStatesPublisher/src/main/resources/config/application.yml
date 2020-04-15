@@ -1,0 +1,23 @@
+spring:
+  cloud:
+    stream:
+      poller:
+        fixedDelay: 30000
+      function:
+        definition: retrieveAndPublish
+      bindings:
+        retrieveAndPublish-out-0:
+          destination: com/covidtracking/states/current/get/raw
+          content-type: application/json
+solace:
+  java:
+    host: ${host:tcp://localhost:55555}
+    msgVpn: ${msgVpn:default}
+    clientUsername: ${clientUsername:default}
+    clientPassword: ${clientPassword:default}
+logging:
+  level:
+    root: info
+    org:
+      springframework: info
+
