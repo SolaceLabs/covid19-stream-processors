@@ -12,7 +12,7 @@ public class CovidTracking_StatesCurrentData extends ArrayList<CovidTracking_Sta
         }
 
 
-        public CovidTracking_StatesCurrentDataItems(String notes, Integer posNeg, Integer death, Integer pending, Integer hospitalizedCurrently, String lastUpdateEt, Integer negativeScore, Integer onVentilatorCumulative, Integer hospitalized, Integer score, Integer negative, Integer total, Integer commercialScore, Integer hospitalizedCumulative, Integer positiveScore, Integer inIcuCumulative, String state, Integer totalTestResults, Integer inIcuCurrently, String checkTimeEt, String dateChecked, Integer negativeRegularScore, String fips, Integer onVentilatorCurrently, String dateModified, Integer positive, Integer recovered, String grade, String hash) {
+        public CovidTracking_StatesCurrentDataItems(String notes, Integer posNeg, Integer death, Integer pending, Integer hospitalizedCurrently, String lastUpdateEt, Integer negativeScore, Integer onVentilatorCumulative, Integer hospitalized, Integer score, Integer negative, Integer total, Integer commercialScore, Integer hospitalizedCumulative, Integer positiveScore, Integer inIcuCumulative, String state, Integer totalTestResults, Integer inIcuCurrently, String checkTimeEt, String dateChecked, Integer negativeRegularScore, String fips, Integer onVentilatorCurrently, String dateModified, Integer positive, Integer recovered, String grade, String hash, String dataQualityGrade) {
             this.posNeg = posNeg;
             this.notes = notes;
             this.death = death;
@@ -42,6 +42,7 @@ public class CovidTracking_StatesCurrentData extends ArrayList<CovidTracking_Sta
             this.recovered = recovered;
             this.grade = grade;
             this.hash = hash;
+            this.dataQualityGrade = dataQualityGrade;
         }
 
 
@@ -74,6 +75,7 @@ public class CovidTracking_StatesCurrentData extends ArrayList<CovidTracking_Sta
         private Integer recovered;
         private String grade;
         private String hash;
+        private String dataQualityGrade;
 
         public Integer getPosNeg() {
             return posNeg;
@@ -336,7 +338,17 @@ public class CovidTracking_StatesCurrentData extends ArrayList<CovidTracking_Sta
             return this;
         }
 
-        public String toString() {
+        public String getDataQualityGrade() {
+			return dataQualityGrade;
+		}
+
+
+		public void setDataQualityGrade(String dataQualityGrade) {
+			this.dataQualityGrade = dataQualityGrade;
+		}
+
+
+		public String toString() {
             return "CovidTracking_StatesCurrentDataItems ["
                     + "posNeg: " + posNeg
                     + " notes: " + notes
@@ -367,6 +379,7 @@ public class CovidTracking_StatesCurrentData extends ArrayList<CovidTracking_Sta
                     + " recovered: " + recovered
                     + " grade: " + grade
                     + " hash: " + hash
+                    + " dataQualityGrade: " + dataQualityGrade
                     + " ]";
         }
     }
