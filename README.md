@@ -110,7 +110,8 @@ After connecting and choosing the topics to listen on, it's time to build your a
 | [Spring Cloud Stream Sample](./samples/SpringCloudStreamSample) | Java + Spring | This microservice shows how to consume events using the Spring Cloud Stream project, which abstracts the messaging APIs from the developer and allows them to focus on implementing their business logic.
 | [JavaScript Sample](./samples/JavaScriptSample)| JavaScript | This html page allows you to test out multiple topics and view the stream body response. You can check it out on the [CovidStreamViewer](https://www.marcd.dev/COVIDStreamViewer/index.html)
 |[MQTT JS Sample](./samples/mqtt)|JavaScript| This html page demonstrates connecting to the Solace PubSub+ COVID19 Broker using MQTT JS Library. You can check it out on the [MQTT CovidStreamViewer](https://www.marcd.dev/COVIDStreamViewer/mqtt/mqttListener.html)
-|[NodeJS Sample](./samples/nodejs)|NodeJS| This NodeJs applicatin runs in the reminal using mqtt.js npm library
+|[NodeJS Sample](./samples/nodejs)|NodeJS| This NodeJs application runs in the terminal using mqtt.js npm library
+|[Python Sample](./samples/python)|Python| This NodeJs executable runs in the terminal using the paho-mqtt python library
 
 ### COVID19 Stream Processors
 Below are Spring Boot microservices used to create the event current streams available for consumption. They are also good examples if you would like to consume the streams and republish them into an event broker. Note that they are not intended to be run with the provided credentials as we are running them as a services.
