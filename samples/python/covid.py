@@ -23,7 +23,8 @@ password = "covid19"
 topics = [
     "jhu/csse/covid19/test/cases/+/update/Canada/Ontario/#",
     "jhu/csse/covid19/test/cases/recovered/update/Jordan/#",
-    "jhu/csse/covid19/test/cases/confirmed/update/United Kingdom/#"
+    "jhu/csse/covid19/test/cases/confirmed/update/United Kingdom/#",
+    "com/covidtracking/states/current/update/New York",
 ]
 
 client = mqtt.Client()
