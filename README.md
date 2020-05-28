@@ -118,6 +118,7 @@ Below are Spring Boot microservices used to create the event current streams ava
 
 | Application        | Version           | Integration  | Description |
 | ------------- |:-------------:| :-----| :-----|
+| [COVID19RawPublisher](./stream-processors/jhu/COVID19RawPublisher)      | 0.1 | Spring | This application publihses RAW JHU data |
 | [COVID19CaseSplitter](./stream-processors/jhu/COVID19CasesSplitter)      | 0.1 | Spring | This application consumes RAW JHU COVID19 data, and publishes smaller updates |
 | [COVID19RegionalSplitter](./stream-processors/jhu/COVID19RegionalSplitter) | 0.1      |    Spring | This application consumes RAW JHU COVID19 data, splits it into regional updates and publishes smaller regional updates
 | [COVID19PopulationProvider](./stream-processors/jhu/COVID19PopulationProvider)     | 0.1      |   Spring | This application publishes the percentage of population affected in the areas
