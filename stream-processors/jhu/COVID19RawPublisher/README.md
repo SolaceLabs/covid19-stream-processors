@@ -1,5 +1,5 @@
 # Regional Splitter
-This application publishes raw JHU data to the broker smaller regional updates on the following topic     
+This application publishes raw JHU data to the broker on the following topic     
 
 `jhu/csse/covid19/raw`
 
