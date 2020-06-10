@@ -1,3 +1,6 @@
+| NOTICE | The streams below are no longer continuously running on a publicly available broker. If you would like to use them you can spin up a Solace Broker for free in [Solace Cloud](https://bit.ly/try-solace-free) and run the `Publisher` apps in the [Stream Processors section]( https://github.com/SolaceLabs/covid19-stream-processors#covid19-stream-processors) to publish the event streams. |
+| --- | --- |
+
 Table of Contents
 =================
    * [Overview & Data Sources](#overview--data-sources)
