@@ -49,13 +49,13 @@ Connect to the PubSub+ broker using one of the connection end points below. For 
 #### Connection Points
 | API/Protocol | Host |
 |:---------- |:--------
-|`SMF Host`|`tcp://mr2r9za6fwi0wf.messaging.solace.cloud:55555`|
-|`Web Messaging Host`|`ws://mr2r9za6fwi0wf.messaging.solace.cloud:80`|
-|`Secured Web Messaging Host`|`wss://mr2r9za6fwi0wf.messaging.solace.cloud:443`|
-|`MQTT Host`|`tcp://mr2r9za6fwi0wf.messaging.solace.cloud:1883`|
-|`Secured MQTT Host`|`ssl://mr2r9za6fwi0wf.messaging.solace.cloud:8883`|
-|`WebSocket MQTT Host`|`ws://mr2r9za6fwi0wf.messaging.solace.cloud:8000`|
-|`AMQP 1.0`|`amqp://mr2r9za6fwi0wf.messaging.solace.cloud:5672`|
+|`SMF Host`|`tcp://covid.messaging.solace.cloud:55555`|
+|`Web Messaging Host`|`ws://covid.messaging.solace.cloud:80`|
+|`Secured Web Messaging Host`|`wss://covid.messaging.solace.cloud:443`|
+|`MQTT Host`|`tcp://covid.messaging.solace.cloud:1883`|
+|`Secured MQTT Host`|`ssl://covid.messaging.solace.cloud:8883`|
+|`WebSocket MQTT Host`|`ws://covid.messaging.solace.cloud:8000`|
+|`AMQP 1.0`|`amqp://covid.messaging.solace.cloud:5672`|
 
 Note: if you want to receive notifications via a REST end point that supports `POST`, contact us at covid19-project@solace.com
 

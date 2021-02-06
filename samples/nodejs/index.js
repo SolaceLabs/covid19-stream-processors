@@ -1,6 +1,6 @@
 var mqtt = require('mqtt')
 
-var host = "tcp://mr2r9za6fwi0wf.messaging.solace.cloud:1883"
+var host = "tcp://covid.messaging.solace.cloud:1883"
 var config = {
     username: "covid-public-client",
     password: "covid19",

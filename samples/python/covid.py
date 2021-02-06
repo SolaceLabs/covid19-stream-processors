@@ -15,7 +15,7 @@ def on_message(client, data, msg):
     print("Received message on: %s\n %s" % (msg.topic, msg_json_pretty))
 
 # Broker Info
-url = "mr2r9za6fwi0wf.messaging.solace.cloud"
+url = "covid.messaging.solace.cloud"
 username = "covid-public-client"
 password = "covid19"
 

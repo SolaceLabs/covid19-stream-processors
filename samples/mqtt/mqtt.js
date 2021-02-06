@@ -1,6 +1,6 @@
 const LINES_TO_SHOW = 100;
 var isPaused = false;
-var host = "mr2r9za6fwi0wf.messaging.solace.cloud";
+var host = "covid.messaging.solace.cloud";
 var port = 8443
 var username = "covid-public-client";
 var password = "covid19";

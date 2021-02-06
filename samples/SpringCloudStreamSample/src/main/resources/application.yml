@@ -24,7 +24,7 @@ spring:
           destination: jhu/csse/covid19/test/consumeCaseTypeUpdates
 solace:
   java:
-    host: tcp://mr2r9za6fwi0wf.messaging.solace.cloud:55555  
+    host: tcp://covid.messaging.solace.cloud:55555  
     msgVpn: covid-19-streams
     clientUsername: covid-public-client
     clientPassword: covid19
