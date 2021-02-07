@@ -2,10 +2,11 @@
 package com.solace.covidtracking.states;
 
 import java.util.ArrayList;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 public class CovidTracking_StatesCurrentData extends ArrayList<CovidTracking_StatesCurrentData.CovidTracking_StatesCurrentDataItems> {
 
-
+    @JsonIgnoreProperties(ignoreUnknown = true)
     public static class CovidTracking_StatesCurrentDataItems {
 
         public CovidTracking_StatesCurrentDataItems() {
